@@ -14,7 +14,8 @@ public class FishSO : ScriptableObject
     public FishRarity rarity;
     public int sellValue;
     [Space(10)]
-    public Transform model;
+    public Transform fishModel;
+    public Material material;
 }
 public enum FishSpeed
 {

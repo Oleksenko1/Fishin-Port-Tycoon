@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b4cf1d3faefd24e41a31283e1192d0dd, type: 3}
+  m_Name: FishSO
+  m_EditorClassIdentifier: 
+  nameString: Very slow/weak
+  speed: 0
+  stregth: 0
+  rarity: 0
+  sellValue: 5
+  fishModel: {fileID: -8679921383154817045, guid: a9926c2766fb5394a860934fe4e34c4a,
+    type: 3}
+  material: {fileID: 2100000, guid: 4b40c3c8824a21e46934796fd1ebabb8, type: 2}
