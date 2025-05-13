@@ -17,6 +17,6 @@ MonoBehaviour:
   stregth: 0
   rarity: 0
   sellValue: 8
-  fishModel: {fileID: -8679921383154817045, guid: 47c7cc2f9dfbc1944a1ceb65da672419,
+  height: 1
+  fishModel: {fileID: 2920819921564995474, guid: 38453c08482feef46925c63d2e9e6598,
     type: 3}
-  material: {fileID: 2100000, guid: 6f8176222aa35594aadec1b945bd5051, type: 2}

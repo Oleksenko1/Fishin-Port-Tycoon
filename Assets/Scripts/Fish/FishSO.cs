@@ -13,9 +13,10 @@ public class FishSO : ScriptableObject
     public FishStrength stregth;
     public FishRarity rarity;
     public int sellValue;
+    [Tooltip("How tall is the model of fish. It is needed for properly managing player inventory")]
+    public float height;
     [Space(10)]
     public Transform fishModel;
-    public Material material;
 }
 public enum FishSpeed
 {
