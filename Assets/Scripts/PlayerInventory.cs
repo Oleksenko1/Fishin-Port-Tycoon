@@ -29,16 +29,17 @@ public class PlayerInventory : MonoBehaviour
                     var lastFish = items[items.Count - 1];
                     Vector3 lastFishPos = lastFish.transform.localPosition;
 
-                    float heightOffset = lastFish.fishSO.height / 2 + fishItem.fishSO.height / 2;
+                    float heightOffset = lastFish.fishSO.width / 2 + fishItem.fishSO.width / 2;
                     Vector3 newFishPos = lastFishPos + Vector3.up * heightOffset;
 
                     fish.transform.localPosition = newFishPos;
                 }
                 else
                 {
-                    fish.transform.localPosition = Vector3.up * fishItem.fishSO.height / 2;
+                    fish.transform.localPosition = Vector3.up * fishItem.fishSO.width / 2;
                 }
 
+                fish.transform.Rotate(Vector3.up * -90);
                 fish.transform.Rotate(Vector3.forward * 90);
 
                 items.Add(fishItem);
