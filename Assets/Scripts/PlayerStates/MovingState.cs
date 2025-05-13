@@ -5,16 +5,25 @@ public class MovingState : PlayerState
 {
     public override void OnEnter()
     {
-        throw new NotImplementedException();
+        Debug.Log($"Entered MovingState");
     }
 
     public override void OnExit()
     {
-        throw new NotImplementedException();
+        Debug.Log($"Exit from MovingState");
     }
 
     public override void OnUpdate()
     {
-        throw new NotImplementedException();
+        if (playerController.GetPlayerMovement().GetInputVector() != Vector2.zero)
+        {
+            playerController.MovePlayer();
+        }
+        else
+        {
+            OnExit();
+
+            stateController.EnterState(stateController.idleState);
+        }
     }
 }

@@ -6,16 +6,22 @@ public class IdleState : PlayerState
 {
     public override void OnEnter()
     {
-        throw new System.NotImplementedException();
+        Debug.Log($"Entered IdleState");
     }
 
     public override void OnExit()
     {
-        throw new System.NotImplementedException();
+        Debug.Log($"Exit from IdleState");
     }
 
     public override void OnUpdate()
     {
-        throw new System.NotImplementedException();
+        // Check if player is trying to move
+        if (playerController.GetPlayerMovement().GetInputVector() != Vector2.zero)
+        {
+            OnExit();
+
+            stateController.EnterState(stateController.movingState);
+        }
     }
 }

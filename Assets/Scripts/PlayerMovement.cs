@@ -17,7 +17,7 @@ public class PlayerMovement : MonoBehaviour
     private CharacterController characterController;
 
     private Quaternion rotationOffset = Quaternion.Euler(0, -45, 0);
-    private Vector2 moveDirection = new Vector2();
+    private Vector2 moveDirection = Vector2.zero;
     private float currentAngle = 0f;
     private float angleVelocity;
     void Awake()
@@ -27,10 +27,12 @@ public class PlayerMovement : MonoBehaviour
         modelTransform.rotation = rotationOffset;
     }
 
-    public void MovePlayer()
+    public void HandleInput()
     {
         moveDirection = joystick.Direction.normalized;
-
+    }
+    public void MovePlayer()
+    {
         if (moveDirection != Vector2.zero)
         {
             HandleMovement();
@@ -53,5 +55,5 @@ public class PlayerMovement : MonoBehaviour
 
         modelTransform.rotation = Quaternion.Euler(0, currentAngle, 0) * rotationOffset;
     }
-
+    public Vector2 GetInputVector() => moveDirection;
 }

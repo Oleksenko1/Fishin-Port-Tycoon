@@ -4,6 +4,13 @@ using UnityEngine;
 
 public abstract class PlayerState : MonoBehaviour
 {
+    [HideInInspector] public PlayerController playerController;
+    [HideInInspector] public PlayerStateController stateController;
+    public void InitializeState(PlayerController playerController, PlayerStateController stateController)
+    {
+        this.playerController = playerController;
+        this.stateController = stateController;
+    }
     public abstract void OnEnter();
     public abstract void OnUpdate();
     public abstract void OnExit();
