@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using Unity.VisualScripting;
 using UnityEngine;
 
@@ -52,6 +53,29 @@ public class PlayerInventory : MonoBehaviour
     }
     public FishItem TakeFish()
     {
-        return null;
+        if (items.Count == 0) return null;
+
+        int lastIndex = items.Count - 1;
+
+        FishItem fish = items[lastIndex];
+        Destroy(items[lastIndex].gameObject);
+        items.RemoveAt(lastIndex);
+
+        return fish;
     }
+
+#if UNITY_EDITOR
+    // Code for testing
+    void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.A))
+        {
+            AddFish(startItems[Random.Range(0, startItems.Count)]);
+        }
+        if (Input.GetKeyDown(KeyCode.X))
+        {
+            TakeFish();
+        }
+    }
+#endif
 }
