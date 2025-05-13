@@ -27,7 +27,7 @@ public class PlayerMovement : MonoBehaviour
         modelTransform.rotation = rotationOffset;
     }
 
-    void Update()
+    public void MovePlayer()
     {
         moveDirection = joystick.Direction.normalized;
 
