@@ -1,0 +1,66 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using UnityEngine.UI;
+
+public class UIFishingBar : MonoBehaviour
+{
+    [Header("Stats")]
+    [SerializeField] private float basicArrowSpeed;
+    [Header("Components")]
+    [SerializeField] private RectTransform greenZone;
+    [SerializeField] private RectTransform catchArrow;
+
+
+    void Awake()
+    {
+        PrepareFishing(FishStrength.VeryWeak, FishSpeed.VerySlow);
+    }
+    public void PrepareFishing(FishStrength fishStrength, FishSpeed fishSpeed)
+    {
+        float zoneWidth = GetZoneWidth(fishStrength);
+        SetGreenZone(zoneWidth);
+        
+        float arrowSpeed = GetArrowSpeedMultiplier(fishSpeed);
+
+    }
+
+    private void SetGreenZone(float zoneWidth)
+    {
+        float maxSpawnPos = 1 - zoneWidth;
+
+        float minX = Random.Range(0, maxSpawnPos);
+        float maxX = minX + zoneWidth;
+
+        greenZone.anchorMin = new Vector2(minX, 0f);
+        greenZone.anchorMax = new Vector2(maxX, 1f);
+        greenZone.offsetMin = Vector2.zero;
+        greenZone.offsetMax = Vector2.zero;
+    }
+
+    private float GetZoneWidth(FishStrength strength) => strength switch
+    {
+        FishStrength.VeryWeak => 0.3f,
+        FishStrength.Weak => 0.27f,
+        FishStrength.Average => 0.23f,
+        FishStrength.Strong => 0.2f,
+        FishStrength.VeryStrong => 0.17f,
+        FishStrength.Overpowered => 0.12f,
+        FishStrength.Godlike => 0.8f,
+        _ => 0.3f
+    };
+
+    private float GetArrowSpeedMultiplier(FishSpeed speed) => speed switch
+    {
+        FishSpeed.VerySlow => 1f,
+        FishSpeed.Slow => 1.2f,
+        FishSpeed.Average => 1.4f,
+        FishSpeed.Fast => 1.6f,
+        FishSpeed.VeryFast => 1.8f,
+        FishSpeed.Flash => 2.1f,
+        FishSpeed.LightSpeed => 2.4f,
+        _ => 1f
+    };
+
+}
+
