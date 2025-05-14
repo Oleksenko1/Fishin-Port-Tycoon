@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using DG.Tweening;
 using UnityEngine.UI;
 
 public class UIFishingBar : MonoBehaviour
@@ -11,7 +12,7 @@ public class UIFishingBar : MonoBehaviour
     [SerializeField] private RectTransform greenZone;
     [SerializeField] private RectTransform catchArrow;
 
-
+    private Tween arrowTween;
     void Awake()
     {
         PrepareFishing(FishStrength.VeryWeak, FishSpeed.VerySlow);
@@ -20,9 +21,9 @@ public class UIFishingBar : MonoBehaviour
     {
         float zoneWidth = GetZoneWidth(fishStrength);
         SetGreenZone(zoneWidth);
-        
-        float arrowSpeed = GetArrowSpeedMultiplier(fishSpeed);
 
+        float arrowSpeed = GetArrowSpeedMultiplier(fishSpeed);
+        StartArrowMovement(arrowSpeed);
     }
 
     private void SetGreenZone(float zoneWidth)
@@ -37,6 +38,22 @@ public class UIFishingBar : MonoBehaviour
         greenZone.offsetMin = Vector2.zero;
         greenZone.offsetMax = Vector2.zero;
     }
+
+    private void StartArrowMovement(float speedMultiplier)
+    {
+        catchArrow.anchoredPosition = new Vector2(0f, catchArrow.anchoredPosition.y);
+
+        float halfWidth = ((RectTransform)catchArrow.parent).rect.width;
+
+        float duration = basicArrowSpeed / speedMultiplier;
+
+        arrowTween?.Kill();
+
+        arrowTween = catchArrow.DOAnchorPosX(halfWidth, duration)
+            .SetEase(Ease.Linear)
+            .SetLoops(-1, LoopType.Yoyo);
+    }
+
 
     private float GetZoneWidth(FishStrength strength) => strength switch
     {
