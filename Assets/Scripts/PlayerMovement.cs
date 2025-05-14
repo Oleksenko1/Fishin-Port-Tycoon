@@ -39,6 +39,8 @@ public class PlayerMovement : MonoBehaviour
 
             HandleRotation();
         }
+
+        characterController.Move(Vector3.down * 9.8f * Time.deltaTime);
     }
     private void HandleMovement()
     {
