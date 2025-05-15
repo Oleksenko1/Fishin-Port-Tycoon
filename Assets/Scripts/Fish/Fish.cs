@@ -11,4 +11,5 @@ public class Fish
     public float size;
     public int sellValue;
     public Transform fishModel;
+    public float width;
 }

@@ -14,7 +14,8 @@ public static class HelpUtilities
             rarity = fishSO.rarity,
             size = _size,
             sellValue = _sellValue,
-            fishModel = fishSO.fishModel
+            fishModel = fishSO.fishModel,
+            width = fishSO.width
         };
 
         return fish;

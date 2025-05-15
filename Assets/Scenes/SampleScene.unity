@@ -1975,6 +1975,7 @@ MonoBehaviour:
   maxTimeToCatch: 5
   fishingUI: {fileID: 1975431630}
   fishingBarUI: {fileID: 1995731662}
+  playerInventory: {fileID: 1690682395}
   ocean: {fileID: 1670605479}
 --- !u!1 &888447443
 GameObject:
@@ -3128,12 +3129,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxCapacity: 5
   inventoryTransform: {fileID: 2033232824}
-  startItems:
-  - {fileID: 11400000, guid: df318ad9301608948963c75c60df6c97, type: 2}
-  - {fileID: 11400000, guid: 4e407da6380b095449cc4453a1d631ec, type: 2}
-  - {fileID: 11400000, guid: 7bdcc8b4226846c438a39fbbd968284e, type: 2}
-  - {fileID: 11400000, guid: 0e6ab1e6d7f168c4fa0be2087be0df3f, type: 2}
-  - {fileID: 11400000, guid: 6fd24092e0261f74ab8df4e541f1a174, type: 2}
 --- !u!114 &1690682396
 MonoBehaviour:
   m_ObjectHideFlags: 0

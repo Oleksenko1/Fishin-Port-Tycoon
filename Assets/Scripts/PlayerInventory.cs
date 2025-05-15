@@ -10,25 +10,13 @@ public class PlayerInventory : MonoBehaviour
     [Header("Components")]
     [SerializeField] private Transform inventoryTransform;
 
-    public List<FishSO> startItems = new List<FishSO>();
     private List<FishItem> items = new List<FishItem>();
 
-    void Awake()
+    public void AddFish(Fish fish)
     {
-        // Initialize inventory
-        if (startItems.Count > 0)
-        {
-            for (int i = 0; i < startItems.Count; i++)
-            {
-                AddFish(startItems[i]);
-            }
-        }
-    }
-    public void AddFish(FishSO fishSO)
-    {
-        var fish = Instantiate(fishSO.fishModel, inventoryTransform);
-        var fishItem = fish.AddComponent<FishItem>();
-        fishItem.fishSO = fishSO;
+        var fishObject = Instantiate(fish.fishModel, inventoryTransform);
+        var fishItem = fishObject.AddComponent<FishItem>();
+        fishItem.fish = fish;
 
         // Configuring Y position
         if (items.Count > 0)
@@ -36,18 +24,18 @@ public class PlayerInventory : MonoBehaviour
             var lastFish = items[items.Count - 1];
             Vector3 lastFishPos = lastFish.transform.localPosition;
 
-            float heightOffset = lastFish.fishSO.width / 2 + fishItem.fishSO.width / 2;
+            float heightOffset = lastFish.fish.width / 2 + fishItem.fish.width / 2;
             Vector3 newFishPos = lastFishPos + Vector3.up * heightOffset;
 
-            fish.transform.localPosition = newFishPos;
+            fishObject.transform.localPosition = newFishPos;
         }
         else
         {
-            fish.transform.localPosition = Vector3.up * fishItem.fishSO.width / 2;
+            fishObject.transform.localPosition = Vector3.up * fishItem.fish.width / 2;
         }
 
-        fish.transform.Rotate(Vector3.up * -90);
-        fish.transform.Rotate(Vector3.forward * 90);
+        fishObject.transform.Rotate(Vector3.up * -90);
+        fishObject.transform.Rotate(Vector3.forward * 90);
 
         items.Add(fishItem);
     }
@@ -68,10 +56,6 @@ public class PlayerInventory : MonoBehaviour
     // Code for testing
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.A))
-        {
-            AddFish(startItems[Random.Range(0, startItems.Count)]);
-        }
         if (Input.GetKeyDown(KeyCode.X))
         {
             TakeFish();

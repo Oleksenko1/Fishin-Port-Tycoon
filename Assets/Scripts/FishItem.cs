@@ -4,5 +4,5 @@ using UnityEngine;
 
 public class FishItem : MonoBehaviour
 {
-    public FishSO fishSO;
+    public Fish fish;
 }

@@ -14,6 +14,7 @@ public class FishingController : MonoBehaviour
     [Header("Components")]
     [SerializeField] private UIFishing fishingUI;
     [SerializeField] private UIFishingBar fishingBarUI;
+    [SerializeField] private PlayerInventory playerInventory;
     [SerializeField] private Ocean ocean;
 
     private Fish currentFish;
@@ -52,6 +53,7 @@ public class FishingController : MonoBehaviour
         if (isSuccess)
         {
             Debug.Log($"Catched {currentFish.nameString}: size {currentFish.size.ToString("F2")}m, value {currentFish.sellValue}");
+            playerInventory.AddFish(currentFish);
         }
 
         isFishing = false;
