@@ -6,11 +6,11 @@ public class EventZone : MonoBehaviour
 {
     public virtual void OnPlayerEnter()
     {
-        Debug.Log("Player entered event zone");
+        
     }
     public virtual void OnPlayerExit()
     {
-        Debug.Log("Player exited event zone");
+        
     }
     public virtual void OnPlayerStay()
     {

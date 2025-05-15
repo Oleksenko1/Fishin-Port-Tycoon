@@ -5,12 +5,12 @@ public class MovingState : PlayerState
 {
     public override void OnEnter()
     {
-        Debug.Log($"Entered MovingState");
+        
     }
 
     public override void OnExit()
     {
-        Debug.Log($"Exit from MovingState");
+        
     }
 
     public override void OnUpdate()

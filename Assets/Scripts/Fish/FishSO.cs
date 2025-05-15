@@ -10,7 +10,7 @@ public class FishSO : ScriptableObject
     [Tooltip("How fast the cursor moves during fishing")]
     public FishSpeed speed;
     [Tooltip("How small is catch area during fishing")]
-    public FishStrength stregth;
+    public FishStrength strength;
     public FishRarity rarity;
     public int sellValue;
     [Space(10)]

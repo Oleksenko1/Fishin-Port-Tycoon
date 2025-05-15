@@ -5,6 +5,8 @@ using UnityEngine;
 public class Fish : MonoBehaviour
 {
     public string nameString;
+    public FishSpeed speed;
+    public FishStrength strength;
     public FishRarity rarity;
     public float size;
     public int sellValue;

@@ -11,8 +11,6 @@ public class FishingState : PlayerState
     }
     public override void OnEnter()
     {
-        Debug.Log("Entered fishing state");
-
         fishingController.StartFishing();
 
         playerController.GetPlayerMovement().EnableJoystick(false);
@@ -24,8 +22,6 @@ public class FishingState : PlayerState
 
     public override void OnExit()
     {
-        Debug.Log("Exit from fishing state");
-
         playerController.GetPlayerMovement().EnableJoystick(true);
     }
 

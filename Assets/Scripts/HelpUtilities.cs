@@ -9,6 +9,8 @@ public static class HelpUtilities
         Fish fish = new Fish
         {
             name = fishSO.name,
+            strength = fishSO.strength,
+            speed = fishSO.speed,
             rarity = fishSO.rarity,
             size = size,
             sellValue = sellValue

@@ -14,6 +14,7 @@ public class FishingController : MonoBehaviour
     [Header("Components")]
     [SerializeField] private UIFishing fishingUI;
     [SerializeField] private UIFishingBar fishingBarUI;
+    [SerializeField] private Ocean ocean;
 
     private float timeToCatch;
     private bool isFishing = false;
