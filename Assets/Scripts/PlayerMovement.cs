@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 [RequireComponent(typeof(CharacterController))]
 public class PlayerMovement : MonoBehaviour
@@ -56,6 +57,15 @@ public class PlayerMovement : MonoBehaviour
         currentAngle = Mathf.SmoothDampAngle(currentAngle, targetAngle, ref angleVelocity, rotationSmoothness);
 
         modelTransform.rotation = Quaternion.Euler(0, currentAngle, 0) * rotationOffset;
+    }
+    public void EnableJoystick(bool b)
+    {
+        joystick.gameObject.SetActive(b);
+
+        if (b == false)
+        {
+            joystick.ForcePointerUp();
+        }
     }
     public Vector2 GetInputVector() => moveDirection;
 }

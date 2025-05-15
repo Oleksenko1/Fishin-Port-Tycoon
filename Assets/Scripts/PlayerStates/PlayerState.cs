@@ -10,7 +10,10 @@ public abstract class PlayerState : MonoBehaviour
     {
         this.playerController = playerController;
         this.stateController = stateController;
+
+        OnInitializeState();
     }
+    public virtual void OnInitializeState(){}
     public abstract void OnEnter();
     public abstract void OnUpdate();
     public abstract void OnExit();

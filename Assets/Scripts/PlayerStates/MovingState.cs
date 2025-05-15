@@ -21,8 +21,6 @@ public class MovingState : PlayerState
         }
         else
         {
-            OnExit();
-
             stateController.EnterState(stateController.idleState);
         }
     }

@@ -21,6 +21,8 @@ public class PlayerStateController : MonoBehaviour
     }
     public void EnterState(PlayerState newState)
     {
+        currentState?.OnExit();
+
         currentState = newState;
 
         if (currentState.playerController == null) newState.InitializeState(playerController, this);

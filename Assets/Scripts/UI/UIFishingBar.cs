@@ -15,7 +15,7 @@ public class UIFishingBar : MonoBehaviour
     private Tween arrowTween;
     void Awake()
     {
-        PrepareFishing(FishStrength.VeryWeak, FishSpeed.VerySlow);
+        gameObject.SetActive(false);
     }
     public void PrepareFishing(FishStrength fishStrength, FishSpeed fishSpeed)
     {
@@ -53,7 +53,25 @@ public class UIFishingBar : MonoBehaviour
             .SetEase(Ease.Linear)
             .SetLoops(-1, LoopType.Yoyo);
     }
+    public bool CatchFish()
+    {
+        arrowTween?.Kill();
 
+        RectTransform parentRect = (RectTransform)catchArrow.parent;
+        float parentWidth = parentRect.rect.width;
+
+        float greenMinX = greenZone.anchorMin.x * parentWidth;
+        float greenMaxX = greenZone.anchorMax.x * parentWidth;
+
+        float arrowX = catchArrow.anchoredPosition.x;
+
+        bool isFishCatched = arrowX >= greenMinX && arrowX <= greenMaxX;
+
+        return isFishCatched;
+    }
+
+    public void ShowUI() => gameObject.SetActive(true);
+    public void HideUI() => gameObject.SetActive(false);
 
     private float GetZoneWidth(FishStrength strength) => strength switch
     {
