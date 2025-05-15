@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Fish : MonoBehaviour
+public class Fish
 {
     public string nameString;
     public FishSpeed speed;
@@ -10,4 +10,5 @@ public class Fish : MonoBehaviour
     public FishRarity rarity;
     public float size;
     public int sellValue;
+    public Transform fishModel;
 }

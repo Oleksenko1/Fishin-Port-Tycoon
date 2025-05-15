@@ -17,12 +17,12 @@ public class UIFishingBar : MonoBehaviour
     {
         gameObject.SetActive(false);
     }
-    public void PrepareFishing(FishStrength fishStrength, FishSpeed fishSpeed)
+    public void PrepareFishing(Fish fish)
     {
-        float zoneWidth = GetZoneWidth(fishStrength);
+        float zoneWidth = GetZoneWidth(fish.strength);
         SetGreenZone(zoneWidth);
 
-        float arrowSpeed = GetArrowSpeedMultiplier(fishSpeed);
+        float arrowSpeed = GetArrowSpeedMultiplier(fish.speed);
         StartArrowMovement(arrowSpeed);
     }
 
@@ -76,24 +76,24 @@ public class UIFishingBar : MonoBehaviour
     private float GetZoneWidth(FishStrength strength) => strength switch
     {
         FishStrength.VeryWeak => 0.3f,
-        FishStrength.Weak => 0.27f,
-        FishStrength.Average => 0.23f,
-        FishStrength.Strong => 0.2f,
-        FishStrength.VeryStrong => 0.17f,
-        FishStrength.Overpowered => 0.12f,
-        FishStrength.Godlike => 0.8f,
+        FishStrength.Weak => 0.24f,
+        FishStrength.Average => 0.20f,
+        FishStrength.Strong => 0.17f,
+        FishStrength.VeryStrong => 0.12f,
+        FishStrength.Overpowered => 0.08f,
+        FishStrength.Godlike => 0.04f,
         _ => 0.3f
     };
 
     private float GetArrowSpeedMultiplier(FishSpeed speed) => speed switch
     {
         FishSpeed.VerySlow => 1f,
-        FishSpeed.Slow => 1.2f,
-        FishSpeed.Average => 1.4f,
-        FishSpeed.Fast => 1.6f,
-        FishSpeed.VeryFast => 1.8f,
-        FishSpeed.Flash => 2.1f,
-        FishSpeed.LightSpeed => 2.4f,
+        FishSpeed.Slow => 1.4f,
+        FishSpeed.Average => 1.7f,
+        FishSpeed.Fast => 2.0f,
+        FishSpeed.VeryFast => 2.4f,
+        FishSpeed.Flash => 3f,
+        FishSpeed.LightSpeed => 4f,
         _ => 1f
     };
 

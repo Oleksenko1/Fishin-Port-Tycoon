@@ -16,6 +16,7 @@ public class FishingController : MonoBehaviour
     [SerializeField] private UIFishingBar fishingBarUI;
     [SerializeField] private Ocean ocean;
 
+    private Fish currentFish;
     private float timeToCatch;
     private bool isFishing = false;
     void Start()
@@ -33,9 +34,11 @@ public class FishingController : MonoBehaviour
     }
     private IEnumerator GetFishOnHook()
     {
+        currentFish = ocean.GetFish();
+
         yield return new WaitForSeconds(timeToCatch);
 
-        fishingBarUI.PrepareFishing(FishStrength.VeryWeak, FishSpeed.VerySlow);
+        fishingBarUI.PrepareFishing(currentFish);
         fishingBarUI.ShowUI();
         isFishing = true;
     }
@@ -46,7 +49,10 @@ public class FishingController : MonoBehaviour
 
         bool isSuccess = fishingBarUI.CatchFish();
 
-        Debug.Log("Fish catched = " + isSuccess);
+        if (isSuccess)
+        {
+            Debug.Log($"Catched {currentFish.nameString}: size {currentFish.size.ToString("F2")}m, value {currentFish.sellValue}");
+        }
 
         isFishing = false;
 

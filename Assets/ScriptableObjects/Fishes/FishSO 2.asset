@@ -14,9 +14,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nameString: Slow and strong
   speed: 1
-  stregth: 3
+  strength: 3
   rarity: 0
   sellValue: 10
+  minSize: 1
+  maxSize: 1.4
   width: 0.2
   fishModel: {fileID: 6216757861183861494, guid: bb5898b490a8ba9479e3a170f96e5c98,
     type: 3}

@@ -2,20 +2,21 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public static class HelpUtilities 
+public static class HelpUtilities
 {
-    public static Fish ToFish(this FishSO fishSO, float size, int sellValue)
+    public static Fish ToFish(this FishSO fishSO, float _size, int _sellValue)
     {
         Fish fish = new Fish
         {
-            name = fishSO.name,
+            nameString = fishSO.nameString,
             strength = fishSO.strength,
             speed = fishSO.speed,
             rarity = fishSO.rarity,
-            size = size,
-            sellValue = sellValue
+            size = _size,
+            sellValue = _sellValue,
+            fishModel = fishSO.fishModel
         };
-        
+
         return fish;
     }
 }
