@@ -6,8 +6,17 @@ public class Ocean : MonoBehaviour
 {
     [SerializeField] private List<FishSO> fishList;
 
-    public FishSO GetFish()
+    public Fish GetFish()
     {
-        return fishList[Random.Range(0, fishList.Count)];
+        FishSO fishSO = fishList[Random.Range(0, fishList.Count)];
+
+        float size = Random.Range(fishSO.minSize, fishSO.maxSize);
+
+        float sizeValue = size / ((fishSO.minSize + fishSO.maxSize) / 2);
+        int sellValue = (int)(fishSO.sellValue * sizeValue);
+
+        Fish fish = fishSO.ToFish(size, sellValue);
+
+        return fish;
     }
 }

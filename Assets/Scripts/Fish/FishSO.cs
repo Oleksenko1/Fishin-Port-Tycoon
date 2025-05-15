@@ -13,6 +13,9 @@ public class FishSO : ScriptableObject
     public FishStrength stregth;
     public FishRarity rarity;
     public int sellValue;
+    [Space(10)]
+    public float minSize;
+    public float maxSize;
     [Tooltip("How wide is the model of fish. It is needed for properly managing player inventory")]
     public float width;
     [Space(10)]
