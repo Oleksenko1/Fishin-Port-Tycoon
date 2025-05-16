@@ -11,6 +11,8 @@ public class UICatchedFish : MonoBehaviour
     [SerializeField] private TextMeshProUGUI labelTxt;
     [SerializeField] private TextMeshProUGUI sizeTxt;
     [SerializeField] private TextMeshProUGUI valueTxt;
+    [Space(15)]
+    [SerializeField] private UICatchedFishIcon uICatchedFishIcon;
 
     RectTransform rt;
     private float panelWidth;
@@ -28,6 +30,8 @@ public class UICatchedFish : MonoBehaviour
         labelTxt.SetText(fish.nameString);
         sizeTxt.SetText($"Size: {fish.size.ToString("F2")}m");
         valueTxt.SetText($"Value: {fish.sellValue}");
+
+        uICatchedFishIcon.SetIcon(fish.fishModel);
 
         PlayAnimation();
     }
