@@ -2110,6 +2110,7 @@ MonoBehaviour:
   maxTimeToCatch: 5
   fishingUI: {fileID: 1975431630}
   fishingBarUI: {fileID: 1995731662}
+  catchedFishUI: {fileID: 1224725303}
   playerInventory: {fileID: 1690682395}
   ocean: {fileID: 1670605479}
 --- !u!1 &888447443
