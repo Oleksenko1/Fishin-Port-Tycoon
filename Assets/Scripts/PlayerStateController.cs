@@ -1,17 +1,18 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using VContainer;
 
 public class PlayerStateController : MonoBehaviour
 {
-    [SerializeField] private PlayerController playerController;
     [Header("States")]
     [SerializeField] public IdleState idleState;
     [SerializeField] public MovingState movingState;
     [SerializeField] public FishingState fishingState;
+    [Inject] private PlayerController playerController;
 
     private PlayerState currentState;
-    void Awake()
+    void Start()
     {
         EnterState(idleState);
     }

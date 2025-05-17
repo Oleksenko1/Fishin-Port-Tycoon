@@ -7,6 +7,7 @@ public class GameLifetimeScope : LifetimeScope, IStartable
     [SerializeField] private PlayerController playerController;
     [SerializeField] private PlayerInventory playerInventory;
     [SerializeField] private PlayerMovement playerMovement;
+    [SerializeField] private PlayerStateController playerStateController;
     [SerializeField] private FishingController fishingController;
     [Space(10)]
     [SerializeField] private Ocean ocean;
@@ -34,7 +35,9 @@ public class GameLifetimeScope : LifetimeScope, IStartable
     public void Start()
     {
         Container.Inject(fishingController);
+
         Container.Inject(playerController);
         Container.Inject(playerMovement);
+        Container.Inject(playerStateController);
     }
 }
