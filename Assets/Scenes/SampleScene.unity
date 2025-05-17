@@ -1961,6 +1961,61 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 689420565}
   m_CullTransparentMesh: 1
+--- !u!1 &702932641
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 702932642}
+  - component: {fileID: 702932643}
+  m_Layer: 0
+  m_Name: GameLifetimeScope
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &702932642
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 702932641}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1746153114}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &702932643
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 702932641}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 50b6a42f1b229944ea25f88b061677f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  parentReference:
+    TypeName: 
+  autoRun: 1
+  autoInjectGameObjects: []
+  playerController: {fileID: 1690682396}
+  playerInventory: {fileID: 1690682395}
+  ocean: {fileID: 1670605479}
+  fishingUI: {fileID: 1975431630}
+  fishingBarUI: {fileID: 1995731662}
+  catchedFishUI: {fileID: 1224725303}
+  fishingController: {fileID: 842700875}
 --- !u!1 &748105889
 GameObject:
   m_ObjectHideFlags: 0
@@ -2264,14 +2319,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 03f771e947a17fc48a4852666041a972, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fishList: []
   minTimeToCatch: 3
   maxTimeToCatch: 5
-  fishingUI: {fileID: 1975431630}
-  fishingBarUI: {fileID: 1995731662}
-  catchedFishUI: {fileID: 1224725303}
-  playerInventory: {fileID: 1690682395}
-  ocean: {fileID: 1670605479}
 --- !u!1 &888447443
 GameObject:
   m_ObjectHideFlags: 0
@@ -4182,6 +4231,7 @@ Transform:
   m_Children:
   - {fileID: 842700874}
   - {fileID: 1670605478}
+  - {fileID: 702932642}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1761329546

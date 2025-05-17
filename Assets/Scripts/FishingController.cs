@@ -6,21 +6,29 @@ using UnityEngine;
 public class FishingController : MonoBehaviour
 {
     public event Action OnExit;
-    [SerializeField] private List<FishSO> fishList = new List<FishSO>();
+    private UIFishing fishingUI;
+    private UIFishingBar fishingBarUI;
+    private UICatchedFish catchedFishUI;
+    private PlayerInventory playerInventory;
+    private Ocean ocean;
+
     [Tooltip("Minimum time to find a fish")]
     [SerializeField] private float minTimeToCatch = 3f;
     [Tooltip("Maximum time to find a fish")]
     [SerializeField] private float maxTimeToCatch = 5f;
-    [Header("Components")]
-    [SerializeField] private UIFishing fishingUI;
-    [SerializeField] private UIFishingBar fishingBarUI;
-    [SerializeField] private UICatchedFish catchedFishUI;
-    [SerializeField] private PlayerInventory playerInventory;
-    [SerializeField] private Ocean ocean;
-
     private Fish currentFish;
     private float timeToCatch;
     private bool isFishing = false;
+
+    [VContainer.Inject]
+    public void Construct(UIFishing fishingUI, UIFishingBar fishingBarUI, UICatchedFish catchedFishUI, PlayerInventory playerInventory, Ocean ocean)
+    {
+        this.fishingUI = fishingUI;
+        this.fishingBarUI = fishingBarUI;
+        this.catchedFishUI = catchedFishUI;
+        this.playerInventory = playerInventory;
+        this.ocean = ocean;
+    }
     void Start()
     {
         fishingUI.OnCatchPressed += CatchFish;
