@@ -4,20 +4,21 @@ using UnityEngine;
 
 public class GameLifetimeScope : LifetimeScope, IStartable
 {
-    [Header("What to inject")]
     [SerializeField] private PlayerController playerController;
     [SerializeField] private PlayerInventory playerInventory;
+    [SerializeField] private PlayerMovement playerMovement;
+    [SerializeField] private FishingController fishingController;
+    [Space(10)]
     [SerializeField] private Ocean ocean;
     [Space(10)]
     [SerializeField] private UIFishing fishingUI;
     [SerializeField] private UIFishingBar fishingBarUI;
     [SerializeField] private UICatchedFish catchedFishUI;
-    [Header("Where to inject")]
-    [SerializeField] private FishingController fishingController;
     protected override void Configure(IContainerBuilder builder)
     {
         builder.RegisterComponent(playerController).AsSelf();
         builder.RegisterComponent(playerInventory).AsSelf();
+        builder.RegisterComponent(playerMovement).AsSelf();
         builder.RegisterComponent(ocean).AsSelf();
 
         builder.RegisterComponent(fishingUI).AsSelf();
@@ -28,5 +29,6 @@ public class GameLifetimeScope : LifetimeScope, IStartable
     public void Start()
     {
         Container.Inject(fishingController);
+        Container.Inject(playerController);
     }
 }

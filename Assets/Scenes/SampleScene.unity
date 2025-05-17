@@ -2011,11 +2011,12 @@ MonoBehaviour:
   autoInjectGameObjects: []
   playerController: {fileID: 1690682396}
   playerInventory: {fileID: 1690682395}
+  playerMovement: {fileID: 1690682392}
+  fishingController: {fileID: 842700875}
   ocean: {fileID: 1670605479}
   fishingUI: {fileID: 1975431630}
   fishingBarUI: {fileID: 1995731662}
   catchedFishUI: {fileID: 1224725303}
-  fishingController: {fileID: 842700875}
 --- !u!1 &748105889
 GameObject:
   m_ObjectHideFlags: 0
@@ -4077,8 +4078,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 231fa181e97b51f498e65a98e280ae18, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  movement: {fileID: 1690682392}
-  inventory: {fileID: 1690682395}
 --- !u!114 &1690682397
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -1,12 +1,10 @@
-using System.Collections;
-using System.Collections.Generic;
-using System.Runtime.InteropServices.WindowsRuntime;
+using VContainer;
 using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    [SerializeField] private PlayerMovement movement;
-    [SerializeField] private PlayerInventory inventory;
+    [Inject] private PlayerMovement movement;
+    [Inject] private PlayerInventory inventory;
 
     public void Update()
     {
