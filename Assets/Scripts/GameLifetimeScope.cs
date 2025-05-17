@@ -11,6 +11,7 @@ public class GameLifetimeScope : LifetimeScope, IStartable
     [SerializeField] private FishingController fishingController;
     [Space(10)]
     [SerializeField] private Ocean ocean;
+    [SerializeField] private FishingZone fishingZone;
     [Space(10)]
     [SerializeField] private UIFishing fishingUI;
     [SerializeField] private UIFishingBar fishingBarUI;
@@ -22,6 +23,7 @@ public class GameLifetimeScope : LifetimeScope, IStartable
         builder.RegisterComponent(playerController).AsSelf();
         builder.RegisterComponent(playerInventory).AsSelf();
         builder.RegisterComponent(playerMovement).AsSelf();
+        builder.RegisterComponent(playerStateController).AsSelf();
 
         builder.RegisterComponent(ocean).AsSelf();
 
@@ -34,10 +36,11 @@ public class GameLifetimeScope : LifetimeScope, IStartable
 
     public void Start()
     {
-        Container.Inject(fishingController);
-
         Container.Inject(playerController);
         Container.Inject(playerMovement);
         Container.Inject(playerStateController);
+
+        Container.Inject(fishingController);
+        Container.Inject(fishingZone);
     }
 }

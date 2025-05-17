@@ -770,7 +770,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2e285d170a81a8b4d9e09f4c6373b3b0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  stateController: {fileID: 1690682397}
 --- !u!1 &304205008
 GameObject:
   m_ObjectHideFlags: 0
@@ -2012,11 +2011,14 @@ MonoBehaviour:
   playerController: {fileID: 1690682396}
   playerInventory: {fileID: 1690682395}
   playerMovement: {fileID: 1690682392}
+  playerStateController: {fileID: 1690682397}
   fishingController: {fileID: 842700875}
   ocean: {fileID: 1670605479}
+  fishingZone: {fileID: 279201112}
   fishingUI: {fileID: 1975431630}
   fishingBarUI: {fileID: 1995731662}
   catchedFishUI: {fileID: 1224725303}
+  joystick: {fileID: 1968295360}
 --- !u!1 &748105889
 GameObject:
   m_ObjectHideFlags: 0
@@ -4007,7 +4009,6 @@ MonoBehaviour:
   moveSpeed: 10
   rotationSpeed: 20
   rotationSmoothness: 0.1
-  joystick: {fileID: 1968295360}
   modelTransform: {fileID: 888447448}
 --- !u!143 &1690682393
 CharacterController:
@@ -4090,7 +4091,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4a6162a080f68e142926f251373b3ca0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerController: {fileID: 1690682396}
   idleState: {fileID: 1445013975}
   movingState: {fileID: 1445013974}
   fishingState: {fileID: 1445013972}
