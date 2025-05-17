@@ -14,12 +14,17 @@ public class GameLifetimeScope : LifetimeScope, IStartable
     [SerializeField] private UIFishing fishingUI;
     [SerializeField] private UIFishingBar fishingBarUI;
     [SerializeField] private UICatchedFish catchedFishUI;
+    [Space(10)]
+    [SerializeField] private FloatingJoystick joystick;
     protected override void Configure(IContainerBuilder builder)
     {
         builder.RegisterComponent(playerController).AsSelf();
         builder.RegisterComponent(playerInventory).AsSelf();
         builder.RegisterComponent(playerMovement).AsSelf();
+
         builder.RegisterComponent(ocean).AsSelf();
+
+        builder.RegisterComponent(joystick).AsSelf();
 
         builder.RegisterComponent(fishingUI).AsSelf();
         builder.RegisterComponent(fishingBarUI).AsSelf();
@@ -30,5 +35,6 @@ public class GameLifetimeScope : LifetimeScope, IStartable
     {
         Container.Inject(fishingController);
         Container.Inject(playerController);
+        Container.Inject(playerMovement);
     }
 }

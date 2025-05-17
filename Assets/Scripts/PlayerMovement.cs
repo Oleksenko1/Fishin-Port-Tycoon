@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using VContainer;
 using UnityEngine.EventSystems;
 
 [RequireComponent(typeof(CharacterController))]
@@ -12,8 +13,8 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private float rotationSpeed;
     [SerializeField] private float rotationSmoothness;
     [Header("Components")]
-    [SerializeField] private FloatingJoystick joystick;
     [SerializeField] private Transform modelTransform;
+    [Inject] private FloatingJoystick joystick;
 
     private CharacterController characterController;
 
