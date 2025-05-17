@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 using DG.Tweening;
+using VContainer;
 
 public class UICatchedFish : MonoBehaviour
 {
@@ -11,8 +12,7 @@ public class UICatchedFish : MonoBehaviour
     [SerializeField] private TextMeshProUGUI labelTxt;
     [SerializeField] private TextMeshProUGUI sizeTxt;
     [SerializeField] private TextMeshProUGUI valueTxt;
-    [Space(15)]
-    [SerializeField] private UICatchedFishIcon uICatchedFishIcon;
+    [Inject] private UICatchedFishIcon uICatchedFishIcon;
 
     RectTransform rt;
     private float panelWidth;
