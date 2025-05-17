@@ -5,7 +5,13 @@ using UnityEngine;
 public class FishingState : PlayerState
 {
     [SerializeField] private FishingController fishingController;
-    public override void OnInitializeState()
+
+    public FishingState(PlayerController playerController, PlayerStateController stateController, FishingController fishingController) : base(playerController, stateController)
+    {
+        this.fishingController = fishingController;
+    }
+
+    public override void InitializeState()
     {
         fishingController.OnExit += ExitFishing;
     }
@@ -25,8 +31,5 @@ public class FishingState : PlayerState
         playerController.GetPlayerMovement().EnableJoystick(true);
     }
 
-    public override void OnUpdate()
-    {
-
-    }
+    public override void OnUpdate() { }
 }

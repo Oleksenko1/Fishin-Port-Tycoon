@@ -3,16 +3,11 @@ using UnityEngine;
 
 public class MovingState : PlayerState
 {
-    public override void OnEnter()
-    {
-        
-    }
+    public MovingState(PlayerController playerController, PlayerStateController stateController) : base(playerController, stateController) {}
 
-    public override void OnExit()
-    {
-        
-    }
+    public override void OnEnter() {}
 
+    public override void OnExit() {}
     public override void OnUpdate()
     {
         if (playerController.GetPlayerMovement().GetInputVector() != Vector2.zero)

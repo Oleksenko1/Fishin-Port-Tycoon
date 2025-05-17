@@ -4,15 +4,11 @@ using UnityEngine;
 
 public class IdleState : PlayerState
 {
-    public override void OnEnter()
-    {
-        
-    }
+    public IdleState(PlayerController playerController, PlayerStateController stateController) : base(playerController, stateController) { }
 
-    public override void OnExit()
-    {
-        
-    }
+    public override void OnEnter() {}
+
+    public override void OnExit() {}
 
     public override void OnUpdate()
     {

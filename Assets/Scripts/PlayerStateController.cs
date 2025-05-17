@@ -5,15 +5,24 @@ using VContainer;
 
 public class PlayerStateController : MonoBehaviour
 {
-    [Header("States")]
-    [SerializeField] public IdleState idleState;
-    [SerializeField] public MovingState movingState;
-    [SerializeField] public FishingState fishingState;
+    public IdleState idleState;
+    public MovingState movingState;
+    public FishingState fishingState;
     [Inject] private PlayerController playerController;
+    [Inject] private FishingController fishingController;
 
     private PlayerState currentState;
     void Start()
     {
+        idleState = new IdleState(playerController, this);
+        idleState.InitializeState();
+
+        movingState = new MovingState(playerController, this);
+        movingState.InitializeState();
+        
+        fishingState = new FishingState(playerController, this, fishingController);
+        fishingState.InitializeState();
+
         EnterState(idleState);
     }
     void Update()
@@ -25,8 +34,6 @@ public class PlayerStateController : MonoBehaviour
         currentState?.OnExit();
 
         currentState = newState;
-
-        if (currentState.playerController == null) newState.InitializeState(playerController, this);
 
         newState.OnEnter();
     }

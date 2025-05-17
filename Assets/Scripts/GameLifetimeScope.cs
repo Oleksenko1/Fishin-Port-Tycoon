@@ -25,6 +25,7 @@ public class GameLifetimeScope : LifetimeScope, IStartable
         builder.RegisterComponent(playerInventory).AsSelf();
         builder.RegisterComponent(playerMovement).AsSelf();
         builder.RegisterComponent(playerStateController).AsSelf();
+        builder.RegisterComponent(fishingController).AsSelf();
 
         builder.RegisterComponent(ocean).AsSelf();
 
