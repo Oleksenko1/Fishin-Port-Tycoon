@@ -2,33 +2,24 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using VContainer;
 
 public class FishingController : MonoBehaviour
 {
     public event Action OnExit;
-    private UIFishing fishingUI;
-    private UIFishingBar fishingBarUI;
-    private UICatchedFish catchedFishUI;
-    private PlayerInventory playerInventory;
-    private Ocean ocean;
-
     [Tooltip("Minimum time to find a fish")]
     [SerializeField] private float minTimeToCatch = 3f;
     [Tooltip("Maximum time to find a fish")]
     [SerializeField] private float maxTimeToCatch = 5f;
+    [Inject] private UIFishing fishingUI;
+    [Inject] private UIFishingBar fishingBarUI;
+    [Inject] private UICatchedFish catchedFishUI;
+    [Inject] private PlayerInventory playerInventory;
+    [Inject] private Ocean ocean;
     private Fish currentFish;
     private float timeToCatch;
     private bool isFishing = false;
 
-    [VContainer.Inject]
-    public void Construct(UIFishing fishingUI, UIFishingBar fishingBarUI, UICatchedFish catchedFishUI, PlayerInventory playerInventory, Ocean ocean)
-    {
-        this.fishingUI = fishingUI;
-        this.fishingBarUI = fishingBarUI;
-        this.catchedFishUI = catchedFishUI;
-        this.playerInventory = playerInventory;
-        this.ocean = ocean;
-    }
     void Start()
     {
         fishingUI.OnCatchPressed += CatchFish;
