@@ -8,11 +8,12 @@ public class UICatchedFishIcon : MonoBehaviour
     [SerializeField] private Transform modelSpotTransform;
     private Transform currentModel;
     private Tween rotationTween;
-    public void SetIcon(Transform model)
+    public void SetIcon(Transform model, Material material)
     {
         if (currentModel != null) Destroy(currentModel.gameObject);
 
         currentModel = Instantiate(model, modelSpotTransform);
+        currentModel.GetComponentInChildren<Renderer>().material = material;
 
         modelSpotTransform.localRotation = Quaternion.identity;
 

@@ -22,3 +22,4 @@ MonoBehaviour:
   width: 0.2
   fishModel: {fileID: 2920819921564995474, guid: 38453c08482feef46925c63d2e9e6598,
     type: 3}
+  fishMaterial: {fileID: 2100000, guid: ca5506ebafbabad47b799ad069e3d514, type: 2}

@@ -20,6 +20,7 @@ public class FishSO : ScriptableObject
     public float width;
     [Space(10)]
     public Transform fishModel;
+    public Material fishMaterial;
 }
 public enum FishSpeed
 {

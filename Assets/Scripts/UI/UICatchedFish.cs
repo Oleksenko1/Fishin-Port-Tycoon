@@ -31,7 +31,7 @@ public class UICatchedFish : MonoBehaviour
         sizeTxt.SetText($"Size: {fish.size.ToString("F2")}m");
         valueTxt.SetText($"Value: {fish.sellValue}");
 
-        uICatchedFishIcon.SetIcon(fish.fishModel);
+        uICatchedFishIcon.SetIcon(fish.fishModel, fish.fishMaterial);
 
         PlayAnimation();
     }

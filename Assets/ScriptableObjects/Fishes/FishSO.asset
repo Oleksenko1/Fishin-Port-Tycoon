@@ -20,5 +20,6 @@ MonoBehaviour:
   minSize: 0.9
   maxSize: 1.3
   width: 0.2
-  fishModel: {fileID: 8936335225560905977, guid: 89ef20cba947588498183032bb77f881,
+  fishModel: {fileID: 8180355760905433158, guid: 2aeb5c3a158bb9843b72617f4bb17afe,
     type: 3}
+  fishMaterial: {fileID: 2100000, guid: bbfc692b8b520214bb577728f60d14ac, type: 2}

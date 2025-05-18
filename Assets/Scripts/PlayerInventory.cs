@@ -15,6 +15,7 @@ public class PlayerInventory : MonoBehaviour
     public void AddFish(Fish fish)
     {
         var fishObject = Instantiate(fish.fishModel, inventoryTransform);
+        fishObject.GetComponentInChildren<Renderer>().material = fish.fishMaterial;
         var fishItem = fishObject.AddComponent<FishItem>();
         fishItem.fish = fish;
 

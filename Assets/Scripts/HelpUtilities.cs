@@ -15,6 +15,7 @@ public static class HelpUtilities
             size = _size,
             sellValue = _sellValue,
             fishModel = fishSO.fishModel,
+            fishMaterial = fishSO.fishMaterial,
             width = fishSO.width
         };
 
