@@ -2013,6 +2013,7 @@ MonoBehaviour:
   playerMovement: {fileID: 1690682392}
   playerStateController: {fileID: 1690682397}
   fishingController: {fileID: 842700875}
+  fishObjectPool: {fileID: 1166717662}
   ocean: {fileID: 1670605479}
   fishingZone: {fileID: 279201112}
   fishingUI: {fileID: 1975431630}
@@ -2323,8 +2324,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 03f771e947a17fc48a4852666041a972, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  minTimeToCatch: 3
-  maxTimeToCatch: 5
+  minTimeToCatch: 1
+  maxTimeToCatch: 3
 --- !u!1 &888447443
 GameObject:
   m_ObjectHideFlags: 0
@@ -2771,7 +2772,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 0e6ab1e6d7f168c4fa0be2087be0df3f, type: 2}
   - {fileID: 11400000, guid: 6fd24092e0261f74ab8df4e541f1a174, type: 2}
   - {fileID: 11400000, guid: 4e407da6380b095449cc4453a1d631ec, type: 2}
-  startingAmount: 2
+  startingAmount: 1
 --- !u!1 &1224725298
 GameObject:
   m_ObjectHideFlags: 0

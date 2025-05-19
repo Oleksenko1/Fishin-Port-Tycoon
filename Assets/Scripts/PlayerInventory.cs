@@ -16,12 +16,15 @@ public class PlayerInventory : MonoBehaviour
 
     public void AddFish(Fish fish)
     {
-        var fishItem = objectPool.GetFish(fish.nameString);
+        var fishItem = objectPool.GetFish(fish);
+
         var fishTransform = fishItem.transform;
         fishItem.fish = fish;
         fishItem.renderer.material = fish.fishMaterial;
 
         fishTransform.SetParent(inventoryTransform);
+        fishTransform.localPosition = Vector3.zero;
+        fishTransform.localRotation = Quaternion.identity;
 
         // Configuring Y position
         if (items.Count > 0)
@@ -43,6 +46,7 @@ public class PlayerInventory : MonoBehaviour
         fishTransform.Rotate(Vector3.forward * 90);
 
         items.Add(fishItem);
+        Debug.Log("Total fish amount: " + items.Count);
     }
     public FishItem TakeFish()
     {

@@ -50,5 +50,6 @@ public class GameLifetimeScope : LifetimeScope, IStartable
         Container.Inject(fishingZone);
 
         Container.Inject(catchedFishUI);
+        Container.Inject(catchedFishIconUI);
     }
 }

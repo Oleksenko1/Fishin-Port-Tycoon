@@ -10,7 +10,8 @@ public class FishObjectPool : MonoBehaviour
     [Tooltip("Starting amount of each element")]
     [SerializeField] private int startingAmount;
 
-    private Dictionary<string, Queue<FishItem>> fishPool = new Dictionary<string, Queue<FishItem>>();
+    // Fish ObjectPool that is accessed by fish model
+    private Dictionary<Transform, Queue<FishItem>> fishPool = new Dictionary<Transform, Queue<FishItem>>();
 
     void Awake()
     {
@@ -24,26 +25,25 @@ public class FishObjectPool : MonoBehaviour
             {
                 var fishObject = Instantiate(fishSO.fishModel);
                 var fishItemScript = fishObject.GetComponent<FishItem>();
+                fishItemScript.fish = fishSO.ToFish(0, 0);
 
                 // Adds new queue of fish type if it doesn't exist yet
-                if (fishPool.ContainsKey(fishSO.nameString) == false)
+                if (fishPool.ContainsKey(fishSO.fishModel) == false)
                 {
-                    fishPool.Add(fishSO.nameString, new Queue<FishItem>());
+                    fishPool.Add(fishSO.fishModel, new Queue<FishItem>());
                 }
 
-                fishPool[fishSO.nameString].Enqueue(fishItemScript);
-
-                Debug.Log($"Fish {fishSO.nameString} was added");
+                fishPool[fishSO.fishModel].Enqueue(fishItemScript);
 
                 fishObject.gameObject.SetActive(false);
             }
         }
     }
-    public FishItem GetFish(string fishName)
+    public FishItem GetFish(Fish fishItem)
     {
-        if (fishPool.ContainsKey(fishName) == false) return null;
+        if (fishPool.ContainsKey(fishItem.fishModel) == false) return null;
 
-        Queue<FishItem> pool = fishPool[fishName];
+        Queue<FishItem> pool = fishPool[fishItem.fishModel];
 
         if (pool.Count > 0)
         {
@@ -53,26 +53,33 @@ public class FishObjectPool : MonoBehaviour
         }
         else
         {
-            FishItem fish = Instantiate(FindFishSO_ByName(fishName).fishModel).GetComponent<FishItem>();
+            FishItem fish = Instantiate(FindFishSO(fishItem).fishModel).GetComponent<FishItem>();
+            fish.fish = fishItem;
             return fish;
         }
     }
+
     public void ReturnFish(FishItem fish)
     {
         fish.gameObject.SetActive(false);
 
-        string fishName = fish.fish.nameString;
+        Transform fishModel = fish.fish.fishModel;
 
-        if (fishPool.ContainsKey(fishName) == false) return;
+        if (fishPool.ContainsKey(fishModel) == false)
+        {
+            Debug.LogError("No such fish model in fish object pool");
+            return;
+        }
 
-        fishPool[fishName].Enqueue(fish);
+        fish.transform.position = Vector3.zero;
+        fishPool[fishModel].Enqueue(fish);
     }
-    private FishSO FindFishSO_ByName(string fishName)
+    private FishSO FindFishSO(Fish fishItem)
     {
         FishSO fishSO = null;
         foreach (FishSO fish in startingPool)
         {
-            if (fish.nameString.Equals(fishName))
+            if (fish.fishModel == fishItem.fishModel)
             {
                 fishSO = fish;
                 break;
