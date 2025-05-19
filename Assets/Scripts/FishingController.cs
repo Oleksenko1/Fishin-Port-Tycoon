@@ -28,8 +28,6 @@ public class FishingController : MonoBehaviour
     }
     public void StartFishing()
     {
-        timeToCatch = UnityEngine.Random.Range(minTimeToCatch, maxTimeToCatch);
-
         fishingUI.ShowUI();
 
         StartCoroutine(nameof(GetFishOnHook));
@@ -42,6 +40,8 @@ public class FishingController : MonoBehaviour
             ExitFishing();
             yield break;
         }
+
+        timeToCatch = UnityEngine.Random.Range(minTimeToCatch, maxTimeToCatch);
 
         currentFish = ocean.GetFish();
 
