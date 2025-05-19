@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using VContainer;
 
@@ -35,6 +36,13 @@ public class FishingController : MonoBehaviour
     }
     private IEnumerator GetFishOnHook()
     {
+        if (!playerInventory.HasSpace())
+        {
+            Debug.Log("No free space in inventory");
+            ExitFishing();
+            yield break;
+        }
+
         currentFish = ocean.GetFish();
 
         yield return new WaitForSeconds(timeToCatch);
