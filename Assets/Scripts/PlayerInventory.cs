@@ -46,7 +46,6 @@ public class PlayerInventory : MonoBehaviour
         fishTransform.Rotate(Vector3.forward * 90);
 
         items.Add(fishItem);
-        Debug.Log("Total fish amount: " + items.Count);
     }
     public FishItem TakeFish()
     {
@@ -62,6 +61,7 @@ public class PlayerInventory : MonoBehaviour
 
         return fish;
     }
+    public bool HasSpace() => items.Count < maxCapacity;
 
 #if UNITY_EDITOR
     // Code for testing
