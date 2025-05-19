@@ -1116,8 +1116,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8180355760905433158}
+  - component: {fileID: 6480701901529310020}
   m_Layer: 0
-  m_Name: fish_1_v1
+  m_Name: fish_1_pf
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1140,6 +1141,19 @@ Transform:
   - {fileID: 784417299737877446}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &6480701901529310020
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8848912004881509116}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 20a8cc69b4e8def4b870744bbfe549cf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  renderer: {fileID: 6184793472615873903}
 --- !u!1 &8914618476539991452
 GameObject:
   m_ObjectHideFlags: 0

@@ -5,4 +5,5 @@ using UnityEngine;
 public class FishItem : MonoBehaviour
 {
     public Fish fish;
+    public Renderer renderer;
 }

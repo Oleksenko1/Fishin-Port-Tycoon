@@ -2721,6 +2721,57 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1116669041}
   m_CullTransparentMesh: 1
+--- !u!1 &1166717660
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1166717661}
+  - component: {fileID: 1166717662}
+  m_Layer: 0
+  m_Name: FishObjectPool
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1166717661
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1166717660}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1746153114}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1166717662
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1166717660}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6419f2924780a0647b6b1dcaaa6ee3d3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  startingPool:
+  - {fileID: 11400000, guid: df318ad9301608948963c75c60df6c97, type: 2}
+  - {fileID: 11400000, guid: 7bdcc8b4226846c438a39fbbd968284e, type: 2}
+  - {fileID: 11400000, guid: 0e6ab1e6d7f168c4fa0be2087be0df3f, type: 2}
+  - {fileID: 11400000, guid: 6fd24092e0261f74ab8df4e541f1a174, type: 2}
+  - {fileID: 11400000, guid: 4e407da6380b095449cc4453a1d631ec, type: 2}
+  startingAmount: 2
 --- !u!1 &1224725298
 GameObject:
   m_ObjectHideFlags: 0
@@ -4128,7 +4179,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1746153114}
   m_Layer: 0
-  m_Name: -CONTROLLERS-
+  m_Name: -MANAGERS-
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4150,6 +4201,7 @@ Transform:
   - {fileID: 842700874}
   - {fileID: 1670605478}
   - {fileID: 702932642}
+  - {fileID: 1166717661}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1761329546
