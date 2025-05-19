@@ -11,7 +11,7 @@ public class FishingZone : EventZone
     {
         if (!playerInventory.HasSpace())
         {
-            Debug.Log("You have no space left in inventory!");
+            UIWarningPopup.Instance.ShowWarning("You have no space left in inventory!", 4f);
             return;
         }
         stateController.EnterState(stateController.fishingState);

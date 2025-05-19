@@ -36,7 +36,6 @@ public class FishingController : MonoBehaviour
     {
         if (!playerInventory.HasSpace())
         {
-            Debug.Log("No free space in inventory");
             ExitFishing();
             yield break;
         }
