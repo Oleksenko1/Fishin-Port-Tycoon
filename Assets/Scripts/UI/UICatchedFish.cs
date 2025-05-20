@@ -16,13 +16,16 @@ public class UICatchedFish : MonoBehaviour
 
     RectTransform rt;
     private float panelWidth;
+    private float panelOffset;
     Sequence sequence;
     void Awake()
     {
         rt = GetComponent<RectTransform>();
         panelWidth = rt.rect.width;
 
-        rt.anchoredPosition = new Vector2(panelWidth, 0);
+        panelOffset = panelWidth / 20;
+
+        rt.anchoredPosition = new Vector2(panelWidth + panelOffset, 0);
     }
 
     public void OpenUI(Fish fish)
@@ -45,6 +48,6 @@ public class UICatchedFish : MonoBehaviour
 
         sequence.Append(rt.DOAnchorPosX(0, 0.3f).SetEase(Ease.OutQuad));
         sequence.AppendInterval(4f);
-        sequence.Append(rt.DOAnchorPosX(panelWidth, 0.3f).SetEase(Ease.InQuad));
+        sequence.Append(rt.DOAnchorPosX(panelWidth + panelOffset, 0.3f).SetEase(Ease.InQuad));
     }
 }
