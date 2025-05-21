@@ -61,6 +61,26 @@ public class PlayerInventory : MonoBehaviour
 
         return fish;
     }
+    public FishItem TakeFirstRawFish()
+    {
+        if (items.Count == 0) return null;
+
+        for (int i = 0; i < items.Count; i++)
+        {
+            FishItem fish = items[i];
+
+            if (!fish.fish.isCooked)
+            {
+                fish.transform.SetParent(null);
+
+                items.RemoveAt(i);
+
+                return fish;
+            }
+        }
+
+        return null;
+    }
     public bool HasSpace() => items.Count < maxCapacity;
 
 #if UNITY_EDITOR

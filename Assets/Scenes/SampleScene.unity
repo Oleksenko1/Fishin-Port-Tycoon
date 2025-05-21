@@ -1737,10 +1737,10 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 512
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 1079
   m_LayerOverridePriority: 0
   m_IsTrigger: 1
   m_ProvidesContacts: 0
@@ -2246,7 +2246,7 @@ MonoBehaviour:
   fishObjectPool: {fileID: 1166717662}
   ocean: {fileID: 1670605479}
   fishingZone: {fileID: 279201112}
-  cookingSpot: {fileID: 2100043753}
+  cookingSpot: {fileID: 1385164869}
   cookinSpotPickupZone: {fileID: 486880161}
   fishingUI: {fileID: 1975431630}
   fishingBarUI: {fileID: 1995731662}
@@ -2279,7 +2279,7 @@ Transform:
   m_GameObject: {fileID: 729460507}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.5, z: 0.325}
+  m_LocalPosition: {x: 0, y: 0.601, z: 0.325}
   m_LocalScale: {x: 1, y: 1, z: 0.5}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -3329,7 +3329,7 @@ Transform:
   m_GameObject: {fileID: 1203670814}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.5, z: -0.32499993}
+  m_LocalPosition: {x: 0, y: 0.601, z: -0.32499993}
   m_LocalScale: {x: 1, y: 1, z: 0.5}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -3823,6 +3823,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1385164868}
+  - component: {fileID: 1385164869}
   m_Layer: 0
   m_Name: CookingSpot
   m_TagString: Untagged
@@ -3846,6 +3847,20 @@ Transform:
   - {fileID: 2100043752}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1385164869
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1385164867}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 645d74a6f73a051468f16cd59324255b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cooldownToPickupFish: 0.3
+  inputFishStackPos: {fileID: 729460508}
 --- !u!1 &1387096859
 GameObject:
   m_ObjectHideFlags: 0
@@ -4708,7 +4723,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 76076a2f198daf0478fc2f8c1f218bca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxCapacity: 3
+  maxCapacity: 10
   inventoryTransform: {fileID: 2033232824}
 --- !u!114 &1690682396
 MonoBehaviour:
@@ -5937,7 +5952,6 @@ GameObject:
   - component: {fileID: 2100043756}
   - component: {fileID: 2100043755}
   - component: {fileID: 2100043754}
-  - component: {fileID: 2100043753}
   m_Layer: 0
   m_Name: Model
   m_TagString: Untagged
@@ -5964,18 +5978,6 @@ Transform:
   - {fileID: 1203670815}
   m_Father: {fileID: 1385164868}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2100043753
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2100043751}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 645d74a6f73a051468f16cd59324255b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!65 &2100043754
 BoxCollider:
   m_ObjectHideFlags: 0

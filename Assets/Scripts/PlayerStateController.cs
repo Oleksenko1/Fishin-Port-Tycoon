@@ -19,7 +19,7 @@ public class PlayerStateController : MonoBehaviour
 
         movingState = new MovingState(playerController, this);
         movingState.InitializeState();
-        
+
         fishingState = new FishingState(playerController, this, fishingController);
         fishingState.InitializeState();
 

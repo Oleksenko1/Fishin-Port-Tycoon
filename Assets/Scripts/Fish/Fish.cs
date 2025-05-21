@@ -10,6 +10,7 @@ public class Fish
     public FishRarity rarity;
     public float size;
     public int sellValue;
+    public bool isCooked = false;
     public Transform fishModel;
     public Material fishMaterial;
     public float width;
