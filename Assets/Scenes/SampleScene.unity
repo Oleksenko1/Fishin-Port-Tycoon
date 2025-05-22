@@ -3859,7 +3859,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 645d74a6f73a051468f16cd59324255b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cooldownToPickupFish: 0.6
+  cooldownToPickupFish: 0.4
   cookDelay: 3
   inputFishStackPos: {fileID: 729460508}
   cookingPos: {fileID: 816174485}

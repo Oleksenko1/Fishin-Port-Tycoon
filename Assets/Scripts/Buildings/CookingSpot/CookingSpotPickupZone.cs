@@ -14,28 +14,17 @@ public class CookingSpotPickupZone : EventZone
         this.cookingSpot = cookingSpot;
         cookingSpot.SetPickupZone(this);
     }
-    private float pickUpCooldown;
-    private float pickUpCooldownDelta;
     private bool canPickup = true;
-    private void Start()
-    {
-        pickUpCooldown = cookingSpot.cooldownToPickupFish;
 
-        pickUpCooldownDelta = 0;
-    }
     public override void OnPlayerEnter()
     {
-        pickUpCooldownDelta = 0;
-
         canPickup = true;
     }
     public override void OnPlayerStay()
     {
         if (canPickup == false) return;
 
-        pickUpCooldownDelta -= Time.deltaTime;
-
-        if (pickUpCooldownDelta <= 0)
+        if (cookingSpot.IsFishGettingPicked() == false)
         {
             // Do something
             FishItem fish = playerInventory.TakeFirstRawFish();
@@ -48,8 +37,6 @@ public class CookingSpotPickupZone : EventZone
             {
                 cookingSpot.PickUpFish(fish);
             }
-
-            pickUpCooldownDelta = pickUpCooldown;
         }
     }
     public override void OnPlayerExit()
