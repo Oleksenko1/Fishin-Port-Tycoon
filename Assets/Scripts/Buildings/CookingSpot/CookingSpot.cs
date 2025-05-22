@@ -3,25 +3,83 @@ using System.Collections.Generic;
 using UnityEngine;
 using VContainer;
 using DG.Tweening;
+using UnityEngine.UIElements;
 
 public class CookingSpot : MonoBehaviour
 {
     [Tooltip("Cooldown between each fish taken from player inventory")]
     [SerializeField] public float cooldownToPickupFish;
+    [Tooltip("Time delay to cook one fish")]
+    [SerializeField] private float cookDelay;
     [Header("Components")]
     [SerializeField] private Transform inputFishStackPos;
-    [Inject] private FishObjectPool fishObjectPool;
+    [SerializeField] private Transform cookingPos;
+    [SerializeField] private Transform outputFishStackPos;
+    // [Inject] private FishObjectPool fishObjectPool;
+    private CookingSpotPickupZone cookingSpotPickupZone;
     private Stack<FishItem> fishToCook = new Stack<FishItem>();
+    private Stack<FishItem> fishReady = new Stack<FishItem>();
 
+    private FishItem currentCookingFish;
+    private float cookDelayDelta = 0;
+
+    void Update()
+    {
+        if ((fishToCook.Count == 0 && currentCookingFish == null) || cookingSpotPickupZone.IsInUse()) return;
+
+        cookDelayDelta -= Time.deltaTime;
+
+        if (cookDelayDelta <= 0)
+        {
+            // Finishing cooking last fish if it is not null
+            if (currentCookingFish != null)
+            {
+                FinishCookingCurrentFish();
+            }
+
+            // Take new fish to cook if there are any left
+            if (fishToCook.Count > 0)
+            {
+                currentCookingFish = fishToCook.Pop();
+
+                CookCurrentFish();
+            }
+
+            cookDelayDelta = cookDelay;
+        }
+    }
     public void PickUpFish(FishItem fishItem)
     {
         PlayPickupAnimation(fishItem);
+    }
+    private void CookCurrentFish()
+    {
+        PlayCurrentFishToCookingSpotAnimation();
+    }
+    private void FinishCookingCurrentFish()
+    {
+        currentCookingFish.fish.isCooked = true;
 
-        fishToCook.Push(fishItem);
+        fishReady.Push(currentCookingFish);
+
+        currentCookingFish = null;
+    }
+    private Vector3 CalculateTargetLocalPosition(FishItem newFish, Stack<FishItem> fishStack)
+    {
+        float totalHeight = 0f;
+
+        foreach (var fish in fishStack)
+        {
+            totalHeight += fish.fish.width;
+        }
+
+        totalHeight += newFish.fish.width / 2f;
+
+        return Vector3.up * totalHeight;
     }
     private void PlayPickupAnimation(FishItem fishItem)
     {
-        Vector3 targetLocalPos = CalculateTargetLocalPosition(fishItem);
+        Vector3 targetLocalPos = CalculateTargetLocalPosition(fishItem, fishToCook);
 
         Vector3 worldStartPos = fishItem.transform.position;
         Vector3 worldTargetPos = inputFishStackPos.TransformPoint(targetLocalPos);
@@ -30,7 +88,7 @@ public class CookingSpot : MonoBehaviour
         fishItem.transform.position = worldStartPos;
 
         float peakHeight = 3f;
-        float duration = 1f;
+        float duration = 0.5f; // SHOULD BE LESS THAN COOLDOWNTOPICKUPFISH
 
         Vector3 peakYPos = new Vector3(worldStartPos.x, worldStartPos.y + peakHeight, worldStartPos.z);
         Vector3 midXZ = new Vector3(
@@ -60,21 +118,31 @@ public class CookingSpot : MonoBehaviour
         {
             fishItem.transform.SetParent(inputFishStackPos);
             fishItem.transform.localPosition = targetLocalPos;
+
+            fishToCook.Push(fishItem);
         });
 
     }
 
-    private Vector3 CalculateTargetLocalPosition(FishItem newFish)
+    private void PlayCurrentFishToCookingSpotAnimation()
     {
-        float totalHeight = 0f;
+        // DO: Upgrade animation
+        Sequence sequence = DOTween.Sequence();
 
-        foreach (var fish in fishToCook)
+        currentCookingFish.transform.SetParent(null);
+
+        float animationDelay = 0.5f;
+
+        sequence.Append(currentCookingFish.transform.DOMove(cookingPos.position, animationDelay).SetEase(Ease.OutQuad));
+
+        sequence.OnComplete(() =>
         {
-            totalHeight += fish.fish.width;
-        }
+            currentCookingFish.transform.SetParent(cookingPos);
+        });
+    }
 
-        totalHeight += newFish.fish.width / 2f;
-
-        return Vector3.up * totalHeight;
+    public void SetPickupZone(CookingSpotPickupZone pickupZone)
+    {
+        cookingSpotPickupZone = pickupZone;
     }
 }

@@ -2247,7 +2247,7 @@ MonoBehaviour:
   ocean: {fileID: 1670605479}
   fishingZone: {fileID: 279201112}
   cookingSpot: {fileID: 1385164869}
-  cookinSpotPickupZone: {fileID: 486880161}
+  cookingSpotPickupZone: {fileID: 486880161}
   fishingUI: {fileID: 1975431630}
   fishingBarUI: {fileID: 1995731662}
   catchedFishUI: {fileID: 1224725303}
@@ -2520,7 +2520,7 @@ Transform:
   m_GameObject: {fileID: 816174484}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1, z: 0}
+  m_LocalPosition: {x: 0, y: 1.46, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2620,7 +2620,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   minTimeToCatch: 0.2
-  maxTimeToCatch: 6
+  maxTimeToCatch: 2
 --- !u!1 &875718208
 GameObject:
   m_ObjectHideFlags: 0
@@ -3859,8 +3859,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 645d74a6f73a051468f16cd59324255b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cooldownToPickupFish: 0.3
+  cooldownToPickupFish: 0.6
+  cookDelay: 3
   inputFishStackPos: {fileID: 729460508}
+  cookingPos: {fileID: 816174485}
+  outputFishStackPos: {fileID: 1203670815}
 --- !u!1 &1387096859
 GameObject:
   m_ObjectHideFlags: 0

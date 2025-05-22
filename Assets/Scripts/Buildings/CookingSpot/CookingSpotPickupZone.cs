@@ -3,11 +3,17 @@ using System.Collections.Generic;
 using UnityEngine;
 using VContainer;
 
-public class CookinSpotPickupZone : EventZone
+public class CookingSpotPickupZone : EventZone
 {
-    [Inject] private CookingSpot cookingSpot;
+    private CookingSpot cookingSpot;
     [Inject] private PlayerInventory playerInventory;
 
+    [Inject]
+    public void Construct(CookingSpot cookingSpot)
+    {
+        this.cookingSpot = cookingSpot;
+        cookingSpot.SetPickupZone(this);
+    }
     private float pickUpCooldown;
     private float pickUpCooldownDelta;
     private bool canPickup = true;
@@ -46,4 +52,9 @@ public class CookinSpotPickupZone : EventZone
             pickUpCooldownDelta = pickUpCooldown;
         }
     }
+    public override void OnPlayerExit()
+    {
+        canPickup = false;
+    }
+    public bool IsInUse() => canPickup;
 }
