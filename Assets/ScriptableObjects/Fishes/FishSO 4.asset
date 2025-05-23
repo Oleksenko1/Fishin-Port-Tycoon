@@ -12,10 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b4cf1d3faefd24e41a31283e1192d0dd, type: 3}
   m_Name: FishSO 4
   m_EditorClassIdentifier: 
-  nameString: Very strong and average
+  nameString: Shuka
   speed: 2
   strength: 4
-  rarity: 0
+  rarity: 3
   sellValue: 15
   minSize: 1.2
   maxSize: 1.6

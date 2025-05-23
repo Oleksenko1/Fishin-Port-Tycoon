@@ -12,10 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b4cf1d3faefd24e41a31283e1192d0dd, type: 3}
   m_Name: FishSO 3
   m_EditorClassIdentifier: 
-  nameString: Fast and weak
+  nameString: Zolota rybka
   speed: 3
   strength: 1
-  rarity: 0
+  rarity: 2
   sellValue: 13
   minSize: 1.2
   maxSize: 1.5

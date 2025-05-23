@@ -12,10 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b4cf1d3faefd24e41a31283e1192d0dd, type: 3}
   m_Name: FishSO 2
   m_EditorClassIdentifier: 
-  nameString: Slow and strong
+  nameString: Seledka
   speed: 1
   strength: 3
-  rarity: 0
+  rarity: 1
   sellValue: 10
   minSize: 1
   maxSize: 1.4
