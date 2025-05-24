@@ -15,6 +15,8 @@ public class CookingSpot : MonoBehaviour
     [SerializeField] private Transform inputFishStackPos;
     [SerializeField] private Transform cookingPos;
     [SerializeField] private Transform outputFishStackPos;
+    [Space(15)]
+    [SerializeField] private Material cookedMaterial;
     // [Inject] private FishObjectPool fishObjectPool;
     private CookingSpotPickupZone cookingSpotPickupZone;
     private Stack<FishItem> fishToCook = new Stack<FishItem>();
@@ -60,6 +62,9 @@ public class CookingSpot : MonoBehaviour
     private void FinishCookingCurrentFish()
     {
         currentCookingFish.fish.isCooked = true;
+        currentCookingFish.renderer.material = cookedMaterial;
+
+        PlayOutputAnimation(currentCookingFish);
 
         fishReady.Push(currentCookingFish);
 
@@ -121,12 +126,34 @@ public class CookingSpot : MonoBehaviour
             fishItem.transform.SetParent(inputFishStackPos);
             fishItem.transform.localPosition = targetLocalPos;
 
-
             isFishGettingPicked = false;
 
             fishToCook.Push(fishItem);
         });
+    }
 
+    private void PlayOutputAnimation(FishItem fishItem)
+    {
+        // DO: Upgrade animation
+        Sequence sequence = DOTween.Sequence();
+
+        fishItem.transform.SetParent(null);
+
+        Vector3 localTargetPosition = CalculateTargetLocalPosition(fishItem, fishReady);
+
+        Vector3 worldStartPos = fishItem.transform.position;
+        Vector3 worldTargetPos = outputFishStackPos.TransformPoint(localTargetPosition);
+
+        float animationDelay = 0.5f;
+
+        sequence.Append(fishItem.transform.DOMove(worldTargetPos, animationDelay).SetEase(Ease.OutQuad));
+
+        sequence.OnComplete(() =>
+        {
+            fishItem.transform.SetParent(outputFishStackPos);
+
+            fishItem.transform.localPosition = localTargetPosition;
+        });
     }
 
     private void PlayCurrentFishToCookingSpotAnimation()
