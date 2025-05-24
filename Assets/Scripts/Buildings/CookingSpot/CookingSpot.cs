@@ -163,9 +163,12 @@ public class CookingSpot : MonoBehaviour
 
         currentCookingFish.transform.SetParent(null);
 
+        Vector3 targetPosition = cookingPos.position;
+        targetPosition.y += currentCookingFish.fish.width / 2;
+
         float animationDelay = 0.5f;
 
-        sequence.Append(currentCookingFish.transform.DOMove(cookingPos.position, animationDelay).SetEase(Ease.OutQuad));
+        sequence.Append(currentCookingFish.transform.DOMove(targetPosition, animationDelay).SetEase(Ease.OutQuad));
 
         sequence.OnComplete(() =>
         {

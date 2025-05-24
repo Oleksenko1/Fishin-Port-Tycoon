@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3904821983262788275}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: fish1:fish_01_rig_new:BodyFinUpperA_M
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -41,7 +41,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4358345607633672675}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: fish1:fish_01_rig_new:BackA_M
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -74,7 +74,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8458170110295459200}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: fish1:fish_01_rig_new:Head_M
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -106,7 +106,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2173049727529795311}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: fish1:fish_01_rig_new:TailFinUpperEnd_02_M
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -137,7 +137,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6038086064121092561}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: fish1:fish_01_rig_new:BodyFinSide1_R
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -169,7 +169,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1004784213085373824}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: fish1:fish_01_rig_new:BodyFinSide3_L
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -201,7 +201,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7765104524830750205}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: fish1:fish_01_rig_new:BackB_M
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -233,7 +233,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2643380821805948606}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: fish1:fish_01_rig_new:Root_M
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -268,7 +268,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4955073137454693040}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: fish1:fish_01_rig_new:DeformationSystem
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -300,7 +300,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5593249235017651521}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: fish1:fish_01_rig_new:BackD_M
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -334,7 +334,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 9118770170507307594}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: fish1:fish_01_rig_new:BackC_M
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -366,7 +366,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 347842352538617342}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: fish1:fish_01_rig_new:TailFinUpperEnd_M
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -398,7 +398,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5509438346607813791}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: fish1:fish_01_rig_new:BodyFinBackUpperC_M
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -429,7 +429,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2537990757622740026}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: fish1:fish_01_rig_new:BodyFinBackUpperB_M
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -461,7 +461,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8172611475182845641}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: fish1:fish_01_rig_new:BodyFinSide2_R
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -493,7 +493,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5355539718074289108}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: fish1:fish_01_rig_new:TailFinUpper_M
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -525,7 +525,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5897187028770934347}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: fish1:fish_01_rig_new:BackE_M
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -557,7 +557,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4560143980214384822}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: fish1:fish_01_rig_new:TailFinLowerEnd_02_M
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -588,7 +588,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7811535881023013117}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: fish1:fish_01_rig_new:BodyFinSide1_L
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -620,7 +620,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 528026790691449783}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: fish1:fish_01_rig_new:BodyFinBackLowerC_M
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -652,7 +652,7 @@ GameObject:
   m_Component:
   - component: {fileID: 784417299737877446}
   - component: {fileID: 6184793472615873903}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: polySurface4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -767,7 +767,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3327706839423800117}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: fish1:fish_01_rig_new:BodyFinBackLowerA_M
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -799,7 +799,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3970611638246602815}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: fish1:fish_01_rig_new:Group
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -831,7 +831,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8547038666790622843}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: fish1:fish_01_rig_new:HeadEnd_M
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -862,7 +862,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2604011089229032871}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: fish1:fish_01_rig_new:TailFinLower_M
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -894,7 +894,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6982132495598759787}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: fish1:fish_01_rig_new:BodyFinBackLowerB_M
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -926,7 +926,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4636353132132110275}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: fish1:fish_01_rig_new:BodyFinSide4_R
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -957,7 +957,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7978695543836992135}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: fish1:fish_01_rig_new:BodyFinSide4_L
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -988,7 +988,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 9039526493353839752}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: fish1:fish_01_rig_new:BodyFinUpperAEnd_M
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1019,7 +1019,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4569315605658046952}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: fish1:fish_01_rig_new:BackF_M
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1052,7 +1052,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8690079255334191605}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: fish1:fish_01_rig_new:TailFinLowerEnd_M
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1084,7 +1084,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2185139524261114957}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: fish1:fish_01_rig_new:BodyFinSide2_L
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1117,7 +1117,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8180355760905433158}
   - component: {fileID: 6480701901529310020}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: fish_1_pf
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1163,7 +1163,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1808301240576185674}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: fish1:fish_01_rig_new:BodyFinSide3_R
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1195,7 +1195,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6658499712441441641}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: fish1:fish_01_rig_new:BodyFinBackUpperA_M
   m_TagString: Untagged
   m_Icon: {fileID: 0}

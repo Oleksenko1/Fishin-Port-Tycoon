@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3962923620188139012}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: fish6_rig:Root_M
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -44,7 +44,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2363952108588707291}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: fish6_rig:BackD_M
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -77,7 +77,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8152651781589716594}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: fish6_rig:BodyFinSide3_R
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -109,7 +109,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1773972251023413583}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: fish6_rig:BackA_M
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -143,7 +143,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8242288499446287257}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: fish6_rig:BodyFinUpperBEnd_M
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -174,7 +174,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2907938932629360531}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: fish6_rig:TailFinLowerEnd_M
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -205,7 +205,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4871849172164934705}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: fish6_rig:DeformationSystem
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -237,7 +237,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2017876557322034729}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: fish6_rig:BackB_M
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -269,7 +269,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1725564569562309069}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: fish6_rig:BodyFinSide4_L
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -300,7 +300,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4390442405047945879}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: fish6_rig:BackC_M
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -333,7 +333,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4032919299178543848}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: fish6_rig:BodyFinUpperAEnd_M
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -364,7 +364,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1334736381346413282}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: fish6_rig:TailFinUpperEnd_M
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -395,7 +395,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5546121699028429239}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: fish6_rig:BodyFinSide2_R
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -427,7 +427,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4776605951008977744}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: fish6_rig:BodyFinLowerA_M
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -459,7 +459,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 714240813038360390}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: fish6_rig:BodyFinSide1_L
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -491,7 +491,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3576222828932633507}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: fish6_rig:BodyFinSide3_L
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -523,7 +523,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5383593676136959868}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: fish6_rig:HeadEnd_M
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -554,7 +554,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 766349418166009380}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: fish6_rig:JawEnd_M
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -585,7 +585,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6321573856576299153}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: fish6_rig:BackF_M
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -618,7 +618,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3532636013840555844}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: fish6_rig:BodyFinSide1_R
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -650,7 +650,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5281352123098509435}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: fish6_rig:TailFinLower_M
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -682,7 +682,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 568419561301642361}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: fish6_rig:Jaw_M
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -714,7 +714,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 991269772984482737}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: fish6_rig:BodyFinLowerAEnd_M
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -746,7 +746,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6135685410686189210}
   - component: {fileID: 2379471784529355248}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: polySurface5
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -860,7 +860,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8554710212290525818}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: fish6_rig:joint1_M
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -892,7 +892,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5571536652271034383}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: fish6_rig:BodyFinUpperA_M
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -924,7 +924,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4115519164460269299}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: fish6_rig:TailFinUpper_M
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -957,7 +957,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8041287039756506280}
   - component: {fileID: 9049744177729183300}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: fish_5_pf
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1003,7 +1003,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3741808361285861578}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: fish6_rig:Group
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1035,7 +1035,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5921051455529857080}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: fish6_rig:BodyFinUpperB_M
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1067,7 +1067,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6901470407353538680}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: fish6_rig:BodyFinSide2_L
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1099,7 +1099,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2836638966440687847}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: fish6_rig:BodyFinSide4_R
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1130,7 +1130,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8917635369430286414}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: fish6_rig:Head_M
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1163,7 +1163,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4677438337022694555}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: fish6_rig:joint2_M
   m_TagString: Untagged
   m_Icon: {fileID: 0}
