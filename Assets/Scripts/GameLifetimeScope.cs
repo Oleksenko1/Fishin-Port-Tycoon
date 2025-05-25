@@ -16,6 +16,7 @@ public class GameLifetimeScope : LifetimeScope, IStartable
     [Space(10)]
     [SerializeField] private CookingSpot cookingSpot;
     [SerializeField] private CookingSpotPickupZone cookingSpotPickupZone;
+    [SerializeField] private CookingSpotOutputZone cookingSpotOutputZone;
     [Space(10)]
     [SerializeField] private UIFishing fishingUI;
     [SerializeField] private UIFishingBar fishingBarUI;
@@ -60,6 +61,7 @@ public class GameLifetimeScope : LifetimeScope, IStartable
         Container.Inject(fishingZone);
 
         Container.Inject(cookingSpotPickupZone);
+        Container.Inject(cookingSpotOutputZone);
         Container.Inject(cookingSpot);
 
         Container.Inject(catchedFishUI);

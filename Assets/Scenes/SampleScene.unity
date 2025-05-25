@@ -7079,6 +7079,7 @@ MonoBehaviour:
   fishingZone: {fileID: 279201112}
   cookingSpot: {fileID: 1385164869}
   cookingSpotPickupZone: {fileID: 486880161}
+  cookingSpotOutputZone: {fileID: 1767288443}
   fishingUI: {fileID: 1975431630}
   fishingBarUI: {fileID: 1995731662}
   catchedFishUI: {fileID: 1224725303}
