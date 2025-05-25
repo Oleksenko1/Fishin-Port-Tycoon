@@ -8693,6 +8693,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cooldownToPickupFish: 0.4
   cookDelay: 3
+  outputDelay: 0.3
   inputFishStackPos: {fileID: 729460508}
   cookingPos: {fileID: 816174485}
   outputFishStackPos: {fileID: 1203670815}

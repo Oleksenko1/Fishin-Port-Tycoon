@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
-using Unity.VisualScripting;
+using DG.Tweening;
 using UnityEngine;
 using VContainer;
 
@@ -44,6 +44,66 @@ public class PlayerInventory : MonoBehaviour
 
         fishTransform.Rotate(Vector3.up * -90);
         fishTransform.Rotate(Vector3.forward * 90);
+
+        items.Add(fishItem);
+    }
+    public void AddFish(FishItem fishItem, bool animateMovement)
+    {
+        var fishTransform = fishItem.transform;
+
+        DOTween.Kill(fishTransform);
+
+        if (animateMovement) // Moves fish to inventory with animation
+        {
+            fishTransform.SetParent(inventoryTransform);
+
+            Sequence sequence = DOTween.Sequence();
+
+            Vector3 targetPosition;
+            // Configuring Y position
+            if (items.Count > 0)
+            {
+                var lastFish = items[items.Count - 1];
+                Vector3 lastFishPos = lastFish.transform.localPosition;
+
+                float heightOffset = lastFish.fish.width / 2 + fishItem.fish.width / 2;
+                Vector3 newFishPos = lastFishPos + Vector3.up * heightOffset;
+
+                targetPosition = newFishPos;
+            }
+            else // Moves fish without animation
+            {
+                targetPosition = Vector3.up * fishItem.fish.width / 2;
+            }
+
+            sequence.Append(fishTransform.DOLocalMove(targetPosition, 0.25f).SetEase(Ease.InQuad));
+            sequence.Join(fishTransform.DOLocalRotate(new Vector3(0, -90, 90), 0.2f, RotateMode.FastBeyond360));
+        }
+        else
+        {
+            fishTransform.SetParent(inventoryTransform);
+            fishTransform.localPosition = Vector3.zero;
+            fishTransform.localRotation = Quaternion.identity;
+
+            // Configuring Y position
+            if (items.Count > 0)
+            {
+                var lastFish = items[items.Count - 1];
+                Vector3 lastFishPos = lastFish.transform.localPosition;
+
+                float heightOffset = lastFish.fish.width / 2 + fishItem.fish.width / 2;
+                Vector3 newFishPos = lastFishPos + Vector3.up * heightOffset;
+
+                fishTransform.localPosition = newFishPos;
+            }
+            else
+            {
+                fishTransform.localPosition = Vector3.up * fishItem.fish.width / 2;
+            }
+
+            fishTransform.Rotate(Vector3.up * -90);
+            fishTransform.Rotate(Vector3.forward * 90);
+        }
 
         items.Add(fishItem);
     }

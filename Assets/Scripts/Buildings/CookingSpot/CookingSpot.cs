@@ -11,6 +11,8 @@ public class CookingSpot : MonoBehaviour
     [SerializeField] public float cooldownToPickupFish;
     [Tooltip("Time delay to cook one fish")]
     [SerializeField] private float cookDelay;
+    [Tooltip("Delay between fish being taken from cooking spot to a player")]
+    [SerializeField] public float outputDelay;
     [Header("Components")]
     [SerializeField] private Transform inputFishStackPos;
     [SerializeField] private Transform cookingPos;
@@ -54,6 +56,17 @@ public class CookingSpot : MonoBehaviour
     public void PickUpFish(FishItem fishItem)
     {
         PlayPickupAnimation(fishItem);
+    }
+    public FishItem OutputFish()
+    {
+        FishItem fish = null;
+
+        if (fishReady.Count != 0)
+        {
+            fish = fishReady.Pop();
+        }
+
+        return fish;
     }
     private void CookCurrentFish()
     {

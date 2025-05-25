@@ -16,6 +16,7 @@ public class Ocean : MonoBehaviour
         int sellValue = (int)(fishSO.sellValue * sizeValue);
 
         Fish fish = fishSO.ToFish(size, sellValue);
+        fish.isCooked = false;
 
         return fish;
     }
