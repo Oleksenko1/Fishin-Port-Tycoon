@@ -15,6 +15,13 @@ public class CookingSpotOutputZone : EventZone
     {
         outputDelay = cookingSpot.outputDelay;
     }
+    public override void OnPlayerEnter()
+    {
+        if (!playerInventory.HasSpace())
+        {
+            UIWarningPopup.Instance.ShowWarning("You have no space left in inventory!", 4f);
+        }
+    }
     public override void OnPlayerStay()
     {
         outputDelayDelta -= Time.deltaTime;
