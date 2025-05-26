@@ -57,8 +57,6 @@ public class PlayerInventory : MonoBehaviour
         {
             fishTransform.SetParent(inventoryTransform);
 
-            Sequence sequence = DOTween.Sequence();
-
             Vector3 targetPosition;
             // Configuring Y position
             if (items.Count > 0)
@@ -76,8 +74,8 @@ public class PlayerInventory : MonoBehaviour
                 targetPosition = Vector3.up * fishItem.fish.width / 2;
             }
 
-            sequence.Append(fishTransform.DOLocalMove(targetPosition, 0.25f).SetEase(Ease.InQuad));
-            sequence.Join(fishTransform.DOLocalRotate(new Vector3(0, -90, 90), 0.2f, RotateMode.FastBeyond360));
+            fishTransform.DOLocalMove(targetPosition, 0.25f).SetEase(Ease.InQuad);
+            fishTransform.DOLocalRotate(new Vector3(0, -90, 90), 0.2f, RotateMode.FastBeyond360);
         }
         else
         {

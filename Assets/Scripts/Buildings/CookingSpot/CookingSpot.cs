@@ -148,25 +148,17 @@ public class CookingSpot : MonoBehaviour
     private void PlayOutputAnimation(FishItem fishItem)
     {
         // DO: Upgrade animation
-        Sequence sequence = DOTween.Sequence();
 
         fishItem.transform.SetParent(null);
 
         Vector3 localTargetPosition = CalculateTargetLocalPosition(fishItem, fishReady);
 
-        Vector3 worldStartPos = fishItem.transform.position;
         Vector3 worldTargetPos = outputFishStackPos.TransformPoint(localTargetPosition);
 
         float animationDelay = 0.5f;
 
-        sequence.Append(fishItem.transform.DOMove(worldTargetPos, animationDelay).SetEase(Ease.OutQuad));
 
-        sequence.OnComplete(() =>
-        {
-            fishItem.transform.SetParent(outputFishStackPos);
-
-            fishItem.transform.localPosition = localTargetPosition;
-        });
+        fishItem.transform.DOMove(worldTargetPos, animationDelay).SetEase(Ease.OutQuad);
     }
 
     private void PlayCurrentFishToCookingSpotAnimation()
