@@ -125,7 +125,7 @@ public class PlayerInventory : MonoBehaviour
     {
         if (items.Count == 0) return null;
 
-        for (int i = 0; i < items.Count; i++)
+        for (int i = items.Count - 1; i >= 0; i--)
         {
             FishItem fish = items[i];
 
