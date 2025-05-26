@@ -71,7 +71,12 @@ public class UIFishingBar : MonoBehaviour
     }
 
     public void ShowUI() => gameObject.SetActive(true);
-    public void HideUI() => gameObject.SetActive(false);
+    public void HideUI()
+    {
+        arrowTween?.Kill();
+
+        gameObject.SetActive(false);
+    }
 
     private float GetZoneWidth(FishStrength strength) => strength switch
     {

@@ -72,7 +72,12 @@ public class FishingController : MonoBehaviour
     }
     private void ExitFishing()
     {
-        if (isFishing) return;
+        if (isFishing)
+        {
+            fishingBarUI.HideUI();
+        }
+
+        isFishing = false;
 
         fishingUI.HideUI();
 
