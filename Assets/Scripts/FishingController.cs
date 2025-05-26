@@ -59,7 +59,7 @@ public class FishingController : MonoBehaviour
 
         if (isSuccess && playerInventory.HasSpace())
         {
-            playerInventory.AddFish(currentFish);
+            playerInventory.AddNewFish(currentFish);
 
             catchedFishUI.OpenUI(currentFish);
         }

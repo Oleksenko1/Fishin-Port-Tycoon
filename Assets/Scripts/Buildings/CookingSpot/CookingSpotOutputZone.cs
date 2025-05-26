@@ -27,7 +27,7 @@ public class CookingSpotOutputZone : EventZone
             {
                 outputDelayDelta = outputDelay;
 
-                playerInventory.AddFish(fish, true);
+                playerInventory.AddFishItem(fish, true);
             }
         }
     }

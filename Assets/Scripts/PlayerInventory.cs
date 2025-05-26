@@ -14,40 +14,18 @@ public class PlayerInventory : MonoBehaviour
 
     private List<FishItem> items = new List<FishItem>();
 
-    public void AddFish(Fish fish)
+    public void AddNewFish(Fish fish)
     {
         var fishItem = objectPool.GetFish(fish);
 
-        var fishTransform = fishItem.transform;
         fishItem.fish = fish;
         fishItem.renderer.material = fish.fishMaterial;
 
-        fishTransform.SetParent(inventoryTransform);
-        fishTransform.localPosition = Vector3.zero;
-        fishTransform.localRotation = Quaternion.identity;
-
-        // Configuring Y position
-        if (items.Count > 0)
-        {
-            var lastFish = items[items.Count - 1];
-            Vector3 lastFishPos = lastFish.transform.localPosition;
-
-            float heightOffset = lastFish.fish.width / 2 + fishItem.fish.width / 2;
-            Vector3 newFishPos = lastFishPos + Vector3.up * heightOffset;
-
-            fishTransform.localPosition = newFishPos;
-        }
-        else
-        {
-            fishTransform.localPosition = Vector3.up * fishItem.fish.width / 2;
-        }
-
-        fishTransform.Rotate(Vector3.up * -90);
-        fishTransform.Rotate(Vector3.forward * 90);
+        SetFishStrictPosition(fishItem);
 
         items.Add(fishItem);
     }
-    public void AddFish(FishItem fishItem, bool animateMovement)
+    public void AddFishItem(FishItem fishItem, bool animateMovement)
     {
         var fishTransform = fishItem.transform;
 
@@ -57,55 +35,19 @@ public class PlayerInventory : MonoBehaviour
         {
             fishTransform.SetParent(inventoryTransform);
 
-            Vector3 targetPosition;
-            // Configuring Y position
-            if (items.Count > 0)
-            {
-                var lastFish = items[items.Count - 1];
-                Vector3 lastFishPos = lastFish.transform.localPosition;
-
-                float heightOffset = lastFish.fish.width / 2 + fishItem.fish.width / 2;
-                Vector3 newFishPos = lastFishPos + Vector3.up * heightOffset;
-
-                targetPosition = newFishPos;
-            }
-            else // Moves fish without animation
-            {
-                targetPosition = Vector3.up * fishItem.fish.width / 2;
-            }
+            Vector3 targetPosition = ConfigureTargetPosition(fishItem);
 
             fishTransform.DOLocalMove(targetPosition, 0.25f).SetEase(Ease.InQuad);
             fishTransform.DOLocalRotate(new Vector3(0, -90, 90), 0.2f, RotateMode.FastBeyond360);
         }
         else
         {
-            fishTransform.SetParent(inventoryTransform);
-            fishTransform.localPosition = Vector3.zero;
-            fishTransform.localRotation = Quaternion.identity;
-
-            // Configuring Y position
-            if (items.Count > 0)
-            {
-                var lastFish = items[items.Count - 1];
-                Vector3 lastFishPos = lastFish.transform.localPosition;
-
-                float heightOffset = lastFish.fish.width / 2 + fishItem.fish.width / 2;
-                Vector3 newFishPos = lastFishPos + Vector3.up * heightOffset;
-
-                fishTransform.localPosition = newFishPos;
-            }
-            else
-            {
-                fishTransform.localPosition = Vector3.up * fishItem.fish.width / 2;
-            }
-
-            fishTransform.Rotate(Vector3.up * -90);
-            fishTransform.Rotate(Vector3.forward * 90);
+            SetFishStrictPosition(fishItem);
         }
 
         items.Add(fishItem);
     }
-    public FishItem TakeFish()
+    public FishItem TakeAndRemoveFish()
     {
         if (items.Count == 0) return null;
 
@@ -141,13 +83,53 @@ public class PlayerInventory : MonoBehaviour
     }
     public bool HasSpace() => items.Count < maxCapacity;
 
+    // Calculate position where fish should be placed
+    private Vector3 ConfigureTargetPosition(FishItem fishItem)
+    {
+        Vector3 targetPosition;
+
+        // Configuring Y position
+        if (items.Count > 0)
+        {
+            var lastFish = items[items.Count - 1];
+            Vector3 lastFishPos = lastFish.transform.localPosition;
+
+            float heightOffset = lastFish.fish.width / 2 + fishItem.fish.width / 2;
+            Vector3 newFishPos = lastFishPos + Vector3.up * heightOffset;
+
+            targetPosition = newFishPos;
+        }
+        else
+        {
+            targetPosition = Vector3.up * fishItem.fish.width / 2;
+        }
+
+        return targetPosition;
+    }
+    // Set strict position of fish in inventory if it does not use animations
+    private void SetFishStrictPosition(FishItem fishItem)
+    {
+        var fishTransform = fishItem.transform;
+
+        fishTransform.SetParent(inventoryTransform);
+        fishTransform.localPosition = Vector3.zero;
+        fishTransform.localRotation = Quaternion.identity;
+
+        Vector3 targetPosition = ConfigureTargetPosition(fishItem);
+
+        fishTransform.localPosition = targetPosition;
+
+        fishTransform.Rotate(Vector3.up * -90);
+        fishTransform.Rotate(Vector3.forward * 90);
+    }
+
 #if UNITY_EDITOR
     // Code for testing
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.X))
         {
-            TakeFish();
+            TakeAndRemoveFish();
         }
     }
 #endif
