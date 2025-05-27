@@ -90,26 +90,19 @@ public class PlayerInventory : MonoBehaviour
     // Calculate position where fish should be placed
     private Vector3 ConfigureTargetPosition(FishItem fishItem)
     {
-        Vector3 targetPosition;
+        float currentY = 0f;
 
-        // Configuring Y position
-        if (items.Count > 0)
+        // Calculating previous fish height
+        for (int i = 0; i < items.Count; i++)
         {
-            var lastFish = items[items.Count - 1];
-            Vector3 lastFishPos = lastFish.transform.localPosition;
-
-            float heightOffset = lastFish.fish.width / 2 + fishItem.fish.width / 2;
-            Vector3 newFishPos = lastFishPos + Vector3.up * heightOffset;
-
-            targetPosition = newFishPos;
-        }
-        else
-        {
-            targetPosition = Vector3.up * fishItem.fish.width / 2;
+            currentY += items[i].fish.width;
         }
 
-        return targetPosition;
+        currentY += fishItem.fish.width / 2f;
+
+        return Vector3.up * currentY;
     }
+
     // Set strict position of fish in inventory if it does not use animations
     private void SetFishStrictPosition(FishItem fishItem)
     {
