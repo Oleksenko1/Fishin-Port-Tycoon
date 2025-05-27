@@ -59,6 +59,8 @@ public class PlayerInventory : MonoBehaviour
         objectPool.ReturnFish(fish);
         items.RemoveAt(lastIndex);
 
+        RepositionInventoryFish(lastIndex);
+
         return fish;
     }
     public FishItem TakeFirstRawFish()
@@ -74,6 +76,8 @@ public class PlayerInventory : MonoBehaviour
                 fish.transform.SetParent(null);
 
                 items.RemoveAt(i);
+
+                RepositionInventoryFish(i);
 
                 return fish;
             }
@@ -122,6 +126,37 @@ public class PlayerInventory : MonoBehaviour
         fishTransform.Rotate(Vector3.up * -90);
         fishTransform.Rotate(Vector3.forward * 90);
     }
+    private void RepositionInventoryFish(int index)
+    {
+        if (index >= items.Count) return;
+
+        float currentY = 0f;
+
+        // Calculating starting Y position
+        for (int i = 0; i < index; i++)
+        {
+            float heightOffset = items[i].fish.width;
+            currentY += heightOffset;
+        }
+
+        // Reposition all fish, starting from INDEX
+        for (int i = index; i < items.Count; i++)
+        {
+            var fishItem = items[i];
+            var fishTransform = fishItem.transform;
+
+            float halfHeight = fishItem.fish.width / 2f;
+            currentY += halfHeight;
+
+            Vector3 newPosition = Vector3.up * currentY;
+
+            DOTween.Kill(fishTransform);
+            fishTransform.DOLocalMove(newPosition, 0.2f).SetEase(Ease.OutQuad);
+
+            currentY += halfHeight;
+        }
+    }
+
 
 #if UNITY_EDITOR
     // Code for testing
