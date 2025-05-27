@@ -156,6 +156,7 @@ public class PlayerInventory : MonoBehaviour
             currentY += halfHeight;
         }
     }
+    public int ItemsAmount() => items.Count;
 
 
 #if UNITY_EDITOR

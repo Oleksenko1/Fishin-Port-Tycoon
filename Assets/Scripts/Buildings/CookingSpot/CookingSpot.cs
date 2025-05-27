@@ -19,20 +19,17 @@ public class CookingSpot : MonoBehaviour
     [SerializeField] private Transform outputFishStackPos;
     [Space(15)]
     [SerializeField] private Material cookedMaterial;
-    // [Inject] private FishObjectPool fishObjectPool;
-    private CookingSpotPickupZone cookingSpotPickupZone;
     private Stack<FishItem> fishToCook = new Stack<FishItem>();
     private Stack<FishItem> fishReady = new Stack<FishItem>();
 
     private FishItem currentCookingFish;
     private float cookDelayDelta = 0;
-    private bool isFishGettingPicked = false;
 
     void Update()
     {
-        if ((fishToCook.Count == 0 && currentCookingFish == null) || cookingSpotPickupZone.IsInUse()) return;
-
         cookDelayDelta -= Time.deltaTime;
+
+        if (fishToCook.Count == 0 && currentCookingFish == null) return;
 
         if (cookDelayDelta <= 0)
         {
@@ -98,51 +95,40 @@ public class CookingSpot : MonoBehaviour
     }
     private void PlayPickupAnimation(FishItem fishItem)
     {
-        isFishGettingPicked = true;
-
         Vector3 targetLocalPos = CalculateTargetLocalPosition(fishItem, fishToCook);
 
-        Vector3 worldStartPos = fishItem.transform.position;
-        Vector3 worldTargetPos = inputFishStackPos.TransformPoint(targetLocalPos);
+        Vector3 startPos = fishItem.transform.localPosition;
 
-        fishItem.transform.SetParent(null);
-        fishItem.transform.position = worldStartPos;
+        fishItem.transform.SetParent(inputFishStackPos);
+        fishItem.transform.position = startPos;
 
         float peakHeight = 3f;
 
-        Vector3 peakYPos = new Vector3(worldStartPos.x, worldStartPos.y + peakHeight, worldStartPos.z);
+        Vector3 peakYPos = new Vector3(startPos.x, startPos.y + peakHeight, startPos.z);
         Vector3 midXZ = new Vector3(
-            (worldStartPos.x + worldTargetPos.x) / 2f,
+            (startPos.x + targetLocalPos.x) / 2f,
             peakYPos.y,
-            (worldStartPos.z + worldTargetPos.z) / 2f
+            (startPos.z + targetLocalPos.z) / 2f
         );
-
-        Vector3 finalYPos = new Vector3(worldTargetPos.x, worldTargetPos.y + peakHeight, worldTargetPos.z);
 
         Sequence seq = DOTween.Sequence();
 
+        float animationLength = 0.4f;
+
         Quaternion targetRotation = Quaternion.Euler(0f, -90f, -90f);
 
-        seq.Append(fishItem.transform.DOMoveY(peakYPos.y, cooldownToPickupFish / 2f).SetEase(Ease.OutQuad));
+        seq.Append(fishItem.transform.DOLocalMoveY(peakYPos.y, animationLength / 2f).SetEase(Ease.OutQuad));
 
-        seq.Join(fishItem.transform.DOMoveX(midXZ.x, cooldownToPickupFish / 2f).SetEase(Ease.Linear));
-        seq.Join(fishItem.transform.DOMoveZ(midXZ.z, cooldownToPickupFish / 2f).SetEase(Ease.Linear));
+        seq.Join(fishItem.transform.DOLocalMoveX(midXZ.x, animationLength / 2f).SetEase(Ease.Linear));
+        seq.Join(fishItem.transform.DOLocalMoveZ(midXZ.z, animationLength / 2f).SetEase(Ease.Linear));
 
-        seq.Join(fishItem.transform.DORotate(targetRotation.eulerAngles, cooldownToPickupFish / 2f).SetEase(Ease.InOutSine));
+        seq.Join(fishItem.transform.DORotate(targetRotation.eulerAngles, animationLength / 2f).SetEase(Ease.InOutSine));
 
-        seq.Append(fishItem.transform.DOMoveY(worldTargetPos.y, cooldownToPickupFish / 2f).SetEase(Ease.InQuad));
-        seq.Join(fishItem.transform.DOMoveX(worldTargetPos.x, cooldownToPickupFish / 2f).SetEase(Ease.Linear));
-        seq.Join(fishItem.transform.DOMoveZ(worldTargetPos.z, cooldownToPickupFish / 2f).SetEase(Ease.Linear));
+        seq.Append(fishItem.transform.DOLocalMoveY(targetLocalPos.y, animationLength / 2f).SetEase(Ease.InQuad));
+        seq.Join(fishItem.transform.DOLocalMoveX(targetLocalPos.x, animationLength / 2f).SetEase(Ease.Linear));
+        seq.Join(fishItem.transform.DOLocalMoveZ(targetLocalPos.z, animationLength / 2f).SetEase(Ease.Linear));
 
-        seq.OnComplete(() =>
-        {
-            fishItem.transform.SetParent(inputFishStackPos);
-            fishItem.transform.localPosition = targetLocalPos;
-
-            isFishGettingPicked = false;
-
-            fishToCook.Push(fishItem);
-        });
+        fishToCook.Push(fishItem);
     }
 
     private void PlayOutputAnimation(FishItem fishItem)
@@ -157,7 +143,6 @@ public class CookingSpot : MonoBehaviour
 
         float animationDelay = 0.5f;
 
-
         fishItem.transform.DOMove(worldTargetPos, animationDelay).SetEase(Ease.OutQuad);
     }
 
@@ -166,24 +151,16 @@ public class CookingSpot : MonoBehaviour
         // DO: Upgrade animation
         Sequence sequence = DOTween.Sequence();
 
-        currentCookingFish.transform.SetParent(null);
+        DOTween.Kill(currentCookingFish.transform);
 
-        Vector3 targetPosition = cookingPos.position;
-        targetPosition.y += currentCookingFish.fish.width / 2;
+        currentCookingFish.transform.SetParent(cookingPos, worldPositionStays: true);
+
+        Vector3 targetPosition = Vector3.up * currentCookingFish.fish.width / 2;
 
         float animationDelay = 0.5f;
 
-        sequence.Append(currentCookingFish.transform.DOMove(targetPosition, animationDelay).SetEase(Ease.OutQuad));
-
-        sequence.OnComplete(() =>
-        {
-            currentCookingFish.transform.SetParent(cookingPos);
-        });
+        sequence.Append(currentCookingFish.transform.DOLocalMove(targetPosition, animationDelay).SetEase(Ease.OutQuad));
+        sequence.Join(currentCookingFish.transform.DORotate(new Vector3(0f, -90f, -90f), animationDelay).SetEase(Ease.OutQuad));
     }
-    public bool IsFishGettingPicked() => isFishGettingPicked;
 
-    public void SetPickupZone(CookingSpotPickupZone pickupZone)
-    {
-        cookingSpotPickupZone = pickupZone;
-    }
 }

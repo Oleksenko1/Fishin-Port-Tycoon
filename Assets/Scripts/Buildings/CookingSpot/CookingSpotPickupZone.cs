@@ -7,41 +7,35 @@ public class CookingSpotPickupZone : EventZone
 {
     private CookingSpot cookingSpot;
     [Inject] private PlayerInventory playerInventory;
+    private float outputDelay;
+    private float outputDelayDelta = 0;
 
     [Inject]
     public void Construct(CookingSpot cookingSpot)
     {
         this.cookingSpot = cookingSpot;
-        cookingSpot.SetPickupZone(this);
+
+        outputDelay = cookingSpot.cooldownToPickupFish;
     }
-    private bool canPickup = true;
 
     public override void OnPlayerEnter()
     {
-        canPickup = true;
+        outputDelayDelta = 0;
     }
     public override void OnPlayerStay()
     {
-        if (canPickup == false) return;
+        outputDelayDelta -= Time.deltaTime;
 
-        if (cookingSpot.IsFishGettingPicked() == false)
+        if (playerInventory.ItemsAmount() != 0 && outputDelayDelta <= 0)
         {
-            // Do something
             FishItem fish = playerInventory.TakeFirstRawFish();
 
-            if (fish == null)
-            {
-                canPickup = false;
-            }
-            else
+            if (fish != null)
             {
                 cookingSpot.PickUpFish(fish);
             }
+
+            outputDelayDelta = outputDelay;
         }
     }
-    public override void OnPlayerExit()
-    {
-        canPickup = false;
-    }
-    public bool IsInUse() => canPickup;
 }
